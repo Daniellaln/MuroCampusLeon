@@ -1,0 +1,30 @@
+# Auditoría aplicada · fase 2
+
+Fecha: 25 de noviembre de 2026. Esta tabla relaciona los hallazgos de [Auditoría de datos y UX](AUDITORIA_DATOS_UX.md) y [Revisión nueva de fase 2](REVISION_NUEVA_FASE2.md) con el código final. Los informes originales se conservan como evidencia del estado previo: su veredicto de reconstrucción y sus cifras históricas no describen automáticamente el cierre actual.
+
+| Hallazgo | Corrección y decisión final | Fuente principal |
+| --- | --- | --- |
+| El cambio parecía fase 1 con otra paleta; después, el grid repetía imágenes ajenas a los posts. | Feed abierto de una columna, autor e iniciales reales, marcador y título hasta tres líneas. Sin portada, extracto ni CTA repetido por fila. Campus breve de mínimo 116 dp. | `PantallaLista.kt`, `Componentes.kt` |
+| Se mostraba Usuario N pese a existir datos de personas. | `GET users`, mapa por `post.userId`, nombre y username; iniciales y color estables. Fallback explícito si aún falta el autor; reintento de nombres y aviso de fallo de caché en el muro. | `UsuarioApi.kt`, `PostsViewModel.kt`, `Comunidad.kt` |
+| Los autores no estaban disponibles sin red. | Room v2 añade entidad y DAO de usuarios; migración 1→2 sin borrado. El marcador `usuarios:todos` distingue el listado de una consulta individual. | `MuroDatabase.kt`, `UsuarioRepositoryConCache.kt` |
+| La búsqueda mostraba un total de descargas que parecía ser el de resultados. | Cantidad de resultados y ámbito en N descargadas o N guardadas; filtro identificado por nombre. Buscar sigue siendo local. | `PantallaLista.kt`, `PostsViewModel.kt` |
+| El detalle recortaba texto detrás de una portada repetida. | Título completo como encabezado; cuerpo completo seleccionable al entrar. Compartir pasa a una acción de texto proporcional. | `PantallaDetalle.kt` |
+| Fallar comentarios ocultaba una publicación correcta. | El ViewModel publica primero el post; comentarios tienen carga, error y reintento independientes. Se muestran correo, asunto y cuerpo sin llamar autor al asunto. | `PostsViewModel.kt`, `PantallaDetalle.kt` |
+| La utilidad se concentraba en decoración. | Guardadas almacena copias completas de publicaciones en JSON persistente, fuera de Room; abre el snapshot sin exigir red y distingue el dispositivo de una cuenta remota. | `GuardadosRepository.kt`, `GuardadosViewModel.kt`, `Comunidad.kt` |
+| Las escrituras terminaban sin un destino claro. | El recibo muestra el título devuelto y Volver al muro. El editor identifica al Autor de ejemplo y se protege al salir con cambios. El borrado explica la simulación antes de solicitar DELETE. | `FormularioPost.kt`, `MuroCampusApp.kt`, `PantallaDetalle.kt` |
+| La revisión proponía aplicar edición/eliminación en la sesión. | Se elige conservar la fuente remota original y mostrar el recibo: no se incorpora un cambio ficticiamente persistente a Room. Es una adaptación explícita de esa recomendación, no una afirmación de persistencia del backend. | `PostRepositoryConCache.kt`, `FormularioPost.kt` |
+| El error del formulario duplicaba llamadas a actuar. | Mensaje compacto y un solo botón que cambia a Reintentar; se conserva el texto escrito y se bloquean envíos duplicados. | `FormularioPost.kt` |
+| Se podía perder el contexto de lectura. | Estados de scroll separados para Muro/Guardadas y regreso sin recargar toda la lista. Cambiar persona vuelve al comienzo; escribir en búsqueda conserva el campo compuesto y el foco, con claves estables de lista. | `MuroCampusApp.kt`, `PantallaLista.kt` |
+| Una respuesta cancelada podía apagar una carga nueva. | Generación de lista y detalle, cancelación de trabajos y comprobación de actividad antes de publicar o persistir. | `PostsViewModel.kt`, repositorios |
+| Cero comentarios no se reconocía como copia válida y podían sobrevivir respuestas antiguas. | Reemplazo transaccional del snapshot y marcador incluso vacío; conserva compatibilidad con copias no vacías de v1. | `PostRepositoryConCache.kt` |
+| Un último request podía cambiar la procedencia de otra pantalla. | Origen separado de lista, detalle y comentarios; el detalle combina solo sus recursos. El indicador describe una copia local, no un monitor de conectividad física. | `PostRepository.kt`, `PostRepositoryConCache.kt`, `PostsViewModel.kt` |
+| Fallar la escritura de caché podía hacer perder datos de red correctos. | `SQLiteException` al guardar conserva el resultado remoto y emite aviso de caché; HTTP/JSON inválido no se oculta con copias antiguas. | Repositorios con caché |
+| Filtro y búsqueda se perdían al reconstruir el proceso. | `SavedStateHandle` restaura ambos y la factory se integra con `CreationExtras`; la primera solicitud usa el filtro restaurado. | `PostsViewModel.kt`, `PostsViewModelFactory.kt` |
+| El vidrio y las imágenes podían confundirse con una función o dato de la API. | Vidrio inspirado por capas, borde y presión. Campus y esculturas son ambientación generada con procedencia; no retratos, noticias, refracción real ni API de Apple. | `GlassControls.kt`, `DESIGN.md`, `diseno/IMAGENES.json` |
+| Los cambios de estado necesitaban accesibilidad y coherencia visual. | Semántica de marcador y comentarios, título heading, anuncios de estados, controles Material de 48 dp y animación inmediata con escala cero. Esqueletos con estructura del feed. | `Comunidad.kt`, `Componentes.kt`, `GlassControls.kt` |
+
+## Evidencia y límites
+
+La correspondencia anterior se verificó por lectura del código final. Los resultados ejecutados se registran por separado en [VERIFICACION_FASE2.md](VERIFICACION_FASE2.md); las imágenes del recorrido están en [GALERIA_FASE2.md](GALERIA_FASE2.md). Una captura fija no acredita vibración, velocidad, cancelación ni ausencia temporal de animación.
+
+JSONPlaceholder es un servicio de práctica: crear, editar y eliminar se simulan. Guardadas es persistencia real local; Room es una copia de lecturas obtenidas del servicio. Ninguna de las dos significa una cuenta o sincronización remota. El entorno comprobado es Windows con emulador Android API 37; no se extiende el veredicto a teléfono físico o Mac.

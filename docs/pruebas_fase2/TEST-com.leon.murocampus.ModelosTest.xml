@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.leon.murocampus.ModelosTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2026-11-25T07:05:44.712Z" hostname="WILLIAM" time="0.015">
+  <properties/>
+  <testcase name="postUsaNombresExactosYAdmiteCamposExtras" classname="com.leon.murocampus.ModelosTest" time="0.005"/>
+  <testcase name="faltaUnCampoObligatorioEsRespuestaInesperada" classname="com.leon.murocampus.ModelosTest" time="0.001"/>
+  <testcase name="nuevoPostNoEnviaId" classname="com.leon.murocampus.ModelosTest" time="0.008"/>
+  <testcase name="comentarioConservaPostIdYCorreo" classname="com.leon.murocampus.ModelosTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

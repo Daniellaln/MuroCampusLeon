@@ -132,3 +132,19 @@ Compórtate como un experto en diseño Android, Material 3 y MVVM. Necesito repl
 
 **Qué comprobar:** Recorre todos los estados con teclado, fuente 130 %, oscuro y animaciones desactivadas.
 
+## 9. Pruebas documentacion
+
+```text
+Compórtate como un experto en pruebas y documentación Android. Ayúdame a verificar MuroCampus en mejora-ia: interceptor, búsqueda sin red, PATCH/DELETE y códigos, Room persistente/offline, paginación, cancelación, autores, guardadas locales, protección de borradores, estados de UI y Compartir. Usa MockWebServer y datos ficticios, no envíes nombres personales a la API de práctica. Captura la aplicación real en emulador, incluido tema oscuro, letra grande y sin conexión. Actualiza README, docs/GUIA_CODIGO_FASE2.md con rutas y líneas verificadas, docs/VERIFICACION_FASE2.md, la galería y PROMPTS.md; conserva las respuestas de Para pensar y las capturas de fase 1. Identifica al autor fijo del editor como Autor de ejemplo. No inventes una ejecución de Gemini ni garantías de similitud visual.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 9 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Apliqué la auditoría final, aclaré el autor de ejemplo y documenté las 75 pruebas, las capturas, los prompts y las rutas del código.
+
+**Reflexión:** Compilar no demuestra cada función; las pruebas y las capturas reales documentan su alcance.
+
+**Qué comprobar:** Ejecuta las pruebas documentadas y comprueba que las capturas corresponden al código de esta rama.
+

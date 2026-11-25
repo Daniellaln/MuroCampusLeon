@@ -28,7 +28,10 @@ import com.leon.murocampus.model.*
         Image(painterResource(R.drawable.conversacion_rosa),null,Modifier.fillMaxWidth().height(170.dp),contentScale=ContentScale.Crop,alpha=.25f)
         Box(Modifier.fillMaxWidth().height(200.dp).background(Brush.verticalGradient(listOf(c.background.copy(alpha=.45f),c.background))))
         Column(Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(horizontal=24.dp,vertical=20.dp),verticalArrangement=Arrangement.spacedBy(22.dp)) {
-            Autor(post?.userId ?: 1)
+            Column(verticalArrangement=Arrangement.spacedBy(6.dp)) {
+                Text("Autor de ejemplo",style=MaterialTheme.typography.labelSmall,color=c.onSurfaceVariant)
+                Autor(post?.userId ?: 1)
+            }
             OutlinedTextField(titulo,{ titulo=it },label={ Text("Título") },modifier=Modifier.fillMaxWidth(),enabled=!cargando,minLines=2,maxLines=5,shape=RoundedCornerShape(16.dp),
                 keyboardOptions=KeyboardOptions(capitalization=KeyboardCapitalization.Sentences),colors=OutlinedTextFieldDefaults.colors(unfocusedContainerColor=c.surface,focusedContainerColor=c.surface))
             OutlinedTextField(contenido,{ contenido=it },label={ Text("Contenido") },modifier=Modifier.fillMaxWidth(),enabled=!cargando,minLines=6,maxLines=12,shape=RoundedCornerShape(16.dp),

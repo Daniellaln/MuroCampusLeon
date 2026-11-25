@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.leon.murocampus.AutoresViewModelTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2026-11-25T07:05:44.345Z" hostname="WILLIAM" time="0.183">
+  <properties/>
+  <testcase name="falloAutoresConservaLosConocidosYElReintentoRecuperaEstado" classname="com.leon.murocampus.AutoresViewModelTest" time="0.152"/>
+  <testcase name="detalleSeLeeMientrasLosComentariosCarganYVolverLosCancela" classname="com.leon.murocampus.AutoresViewModelTest" time="0.009"/>
+  <testcase name="guardadoSeAbreDeInmediatoSinRedYCancelaElDetalleAnterior" classname="com.leon.murocampus.AutoresViewModelTest" time="0.006"/>
+  <testcase name="autoresLentosNoBloqueanLaListaYSePuedenReintentar" classname="com.leon.murocampus.AutoresViewModelTest" time="0.004"/>
+  <testcase name="procedenciaDelDetalleYAdvertenciaDeCacheSeExponenSinConfundirLaLista" classname="com.leon.murocampus.AutoresViewModelTest" time="0.006"/>
+  <testcase name="falloComentariosConservaPublicacionYReintentaSoloComentarios" classname="com.leon.murocampus.AutoresViewModelTest" time="0.006"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -1,0 +1,105 @@
+{
+  "fecha": "2026-11-25T07:12:58.276372+00:00",
+  "total": 75,
+  "unitarias": 47,
+  "Android": 28,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "lint": {
+    "Warning": 19
+  },
+  "archivos": [
+    {
+      "archivo": "TEST-com.leon.murocampus.AcceptJsonTest.xml",
+      "grupo": "unitarias",
+      "tests": 1,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.AutoresViewModelTest.xml",
+      "grupo": "unitarias",
+      "tests": 6,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.FaseDosHttpTest.xml",
+      "grupo": "unitarias",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.FaseDosViewModelTest.xml",
+      "grupo": "unitarias",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.GuardadosViewModelTest.xml",
+      "grupo": "unitarias",
+      "tests": 8,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.ModelosTest.xml",
+      "grupo": "unitarias",
+      "tests": 4,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.PostRepositoryTest.xml",
+      "grupo": "unitarias",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.PostsViewModelTest.xml",
+      "grupo": "unitarias",
+      "tests": 7,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.UsuarioRepositoryTest.xml",
+      "grupo": "unitarias",
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "archivo": "instrumentadas.xml",
+      "grupo": "Android",
+      "tests": 28,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "clasesAndroid": {
+    "com.leon.murocampus.GuardadosPreferencesTest": 3,
+    "com.leon.murocampus.MuroCampusTest": 14,
+    "com.leon.murocampus.RoomCacheTest": 10,
+    "com.leon.murocampus.ServicioRealTest": 1
+  },
+  "logsFinales": [
+    "verificacion_ui_final.log",
+    "compilacion_producto_final.log"
+  ],
+  "entorno": "Windows; emulador Pixel 8 Pro Android API 37"
+}

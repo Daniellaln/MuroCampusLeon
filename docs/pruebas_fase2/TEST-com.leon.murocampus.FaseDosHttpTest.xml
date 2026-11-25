@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.leon.murocampus.FaseDosHttpTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2026-11-25T07:05:44.531Z" hostname="WILLIAM" time="0.095">
+  <properties/>
+  <testcase name="patchEnviaSoloTituloYContenido" classname="com.leon.murocampus.FaseDosHttpTest" time="0.067"/>
+  <testcase name="deleteCompruebaCodigoYRechazaRespuestaDeError" classname="com.leon.murocampus.FaseDosHttpTest" time="0.016"/>
+  <testcase name="paginaUsaInicioLimiteYUsuarioEnLaMismaPeticion" classname="com.leon.murocampus.FaseDosHttpTest" time="0.012"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

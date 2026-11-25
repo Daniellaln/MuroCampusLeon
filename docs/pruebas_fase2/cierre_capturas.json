@@ -1,0 +1,245 @@
+{
+  "fecha": "2026-11-25T15:43:09.492172+00:00",
+  "capturas": 29,
+  "origen": "recaptura final del emulador Windows API37",
+  "recapturadasComprobadas": [
+    "21_horizontal.png",
+    "29_teclado_editor.png",
+    "30_personas.png"
+  ],
+  "retiradaObsoleta": "23_texto_completo.png",
+  "archivos": [
+    {
+      "name": "01_muro.png",
+      "sha256": "d1118f352e38d560af63d789024ff50ac165c1397a58e3750e9bc4e637c82a3e",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "02_busqueda.png",
+      "sha256": "905c795ca11f3381dde640432d5e29bf959a9f7ed1f60155506a27e90284487f",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "03_vacio.png",
+      "sha256": "549ba1e8ea995b1e347271e0d76ea7d19b774fde9c245243ffc219eb6d4c9bcb",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "04_filtro_usuario.png",
+      "sha256": "6d2af971b97837fe7cf470093cb665ed129166cb18734beac8580369d7c78cb4",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "05_detalle.png",
+      "sha256": "f23b9fa523df904d5bcd78dd20a6031e55e34bdbbe02a8c62291581aab4182b6",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "06_compartir.png",
+      "sha256": "ac4f13f3719548a8b9f5c5edb7df575c5c35f68d50483a17900fb05fa1b76989",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "07_editar.png",
+      "sha256": "8deeedfd17a7f63e3d413f6f0b3ed22a9068b1ec912b0724eac1c32669f83963",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "08_edicion_recibida.png",
+      "sha256": "0a01800b8900d273a76731306819036065ada02444549a0d10183ad7089d3c85",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "09_confirmar_eliminar.png",
+      "sha256": "d484e961d2e2536749c38c34906bd097619e3857a8b731fac5d7f17e2b656b08",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "10_eliminacion_recibida.png",
+      "sha256": "a1bd7abe21172420fa0482540db5d8f1dcc305dd88e2eb4fe24aba670176dad1",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "11_crear.png",
+      "sha256": "181269094de51ffecf7e2f79edc41478b1c679e17000dc5ac7dc18b1a5f20619",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "12_publicado.png",
+      "sha256": "25d690436ddf7cab91efb4379f7d4859d56454611dbe49d48dd8a277325ec823",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "13_muro_sin_conexion.png",
+      "sha256": "43acb509e68a14ccc3bf48a26cc373dd8348884fb02618679c84b3501c99e491",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "14_detalle_sin_conexion.png",
+      "sha256": "81da7eb408ab56ff5dcf1e5ef7e9732420eefea6bcd2bdb7de81351c96953165",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "15_error_sin_cache.png",
+      "sha256": "3a871af6ed7a55cb6c59acc1ffc9e87d0b1eaa61bbcc699211b1a75672d4039f",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "16_error_formulario.png",
+      "sha256": "5fd0b1593669642b132acd689e815fb2e6353fa3446ac16474c85e08234104a0",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "17_paginacion.png",
+      "sha256": "2ccabad127bb55e564c246466688c7646e962e8757793c47a3ddb947ce0f095c",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "18_oscuro.png",
+      "sha256": "b28b97b12765e3217d132c5f2afd91e47f15d9adaadc498262811ed75f90ccc4",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "19_texto_grande.png",
+      "sha256": "0016a98824479c03427dd2283b917f50aee940cd22e7add5a02ea115a85a37e5",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "20_formulario_texto_grande.png",
+      "sha256": "d8d03df48bffbdd4711d6f5b879ac5f02ac9bee2f5ebb02474faad4149df9b2d",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "21_horizontal.png",
+      "sha256": "558da35d9f4475b6a2bf6c016b79f40395ccf8fb6be6309ee777def1a943bbb6",
+      "size": [
+        2992,
+        1344
+      ]
+    },
+    {
+      "name": "22_sin_animaciones.png",
+      "sha256": "c67a88fa12894721588145d2725ee6cd8018a4f88b30e166f1ad201f0e147ee9",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "24_comentarios.png",
+      "sha256": "b0b615819aeb8603143c0440c835db9f8ea6d0bc8abea242007bc37421c65cf7",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "25_marcador.png",
+      "sha256": "fd8b42ba5d78e818f41f31a4afd30991f93ddbffdb7fc1f2037cdf3b85af23ce",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "26_guardadas.png",
+      "sha256": "a99b7fb4ce6238d837a14bfcd2639386052bb42132037c5fb379fb85941dd12e",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "27_guardada_sin_red.png",
+      "sha256": "45b8b9b1678dea3c23b9eb8f01182e0f6687b2c57e81954aefdb92b0be7a3738",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "28_proteger_borrador.png",
+      "sha256": "4a9a5f7cbbd10703da456572cbba15935a52520da5b1ba0f469e59892ba36f7f",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "29_teclado_editor.png",
+      "sha256": "693e32c8247724c030fbe880b02cd4ffe7e5530dc03436a587f37c50bdcbffbe",
+      "size": [
+        1344,
+        2992
+      ]
+    },
+    {
+      "name": "30_personas.png",
+      "sha256": "f041fd2a4e39d44d5073e2ed008786444417a2d5780121d79ed43fafcc30b3cf",
+      "size": [
+        1344,
+        2992
+      ]
+    }
+  ]
+}

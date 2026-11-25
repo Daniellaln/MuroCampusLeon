@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.leon.murocampus.PostRepositoryTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-25T07:05:44.729Z" hostname="WILLIAM" time="0.053">
+  <properties/>
+  <testcase name="ioTieneMensajeDeConexionYCancelacionSeRelanza" classname="com.leon.murocampus.PostRepositoryTest" time="0.01"/>
+  <testcase name="postEnviaBodyYRecibeLaRespuesta201" classname="com.leon.murocampus.PostRepositoryTest" time="0.008"/>
+  <testcase name="filtroViajaComoQueryNoComoFiltroLocal" classname="com.leon.murocampus.PostRepositoryTest" time="0.006"/>
+  <testcase name="listarRealizaGetYConvierteLista" classname="com.leon.murocampus.PostRepositoryTest" time="0.007"/>
+  <testcase name="error404EsResultFailureYMensajeDeServidor" classname="com.leon.murocampus.PostRepositoryTest" time="0.008"/>
+  <testcase name="detalleUsaPathYComentariosRutaAnidada" classname="com.leon.murocampus.PostRepositoryTest" time="0.008"/>
+  <testcase name="jsonIncompletoEsFailureYNoCierraLaApp" classname="com.leon.murocampus.PostRepositoryTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
