@@ -13,9 +13,12 @@ import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
 @Composable fun PantallaLista(vm:PostsViewModel,onAbrir:(Int)->Unit) {
     val estado by vm.lista.collectAsStateWithLifecycle()
-
+    val filtro by vm.usuarioFiltro.collectAsStateWithLifecycle()
     Column(Modifier.fillMaxSize()) {
-
+        LazyRow(Modifier.fillMaxWidth(),contentPadding=PaddingValues(horizontal=16.dp),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+            item { FilterChip(selected=filtro==null,onClick={ vm.filtrar(null) },label={ Text("Todos") }) }
+            items((1..10).toList()) { id -> FilterChip(selected=filtro==id,onClick={ vm.filtrar(id) },label={ Text("Usuario $id") }) }
+        }
         when(val actual=estado) {
             UiState.Cargando -> Cargando()
             is UiState.Error -> ErrorConReintento(actual.mensaje,vm::cargar)
