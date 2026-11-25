@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.asStateFlow
 interface PostRepository {
     val sinConexion:kotlinx.coroutines.flow.StateFlow<Boolean>
 
+    suspend fun pagina(inicio:Int,limite:Int,usuario:Int?):Result<List<Post>>
     suspend fun listar():Result<List<Post>>
     suspend fun detalle(id:Int):Result<Post>
     suspend fun comentarios(id:Int):Result<List<Comentario>>
@@ -16,6 +17,7 @@ interface PostRepository {
 }
 class PostRepositoryRemote(private val api:PostApi):PostRepository {
     override val sinConexion=kotlinx.coroutines.flow.MutableStateFlow(false).asStateFlow()
+    override suspend fun pagina(inicio:Int,limite:Int,usuario:Int?)=llamar { api.pagina(inicio,limite,usuario) }
     override suspend fun listar()=llamar { api.listar() }
     override suspend fun detalle(id:Int)=llamar { api.detalle(id) }
     override suspend fun comentarios(id:Int)=llamar { api.comentarios(id) }

@@ -16,6 +16,7 @@ class PostsViewModelTest {
         var listas=0;var filtro:Int?=null;var creaciones=0;var fallo=false
         var detalleBloqueado=false;var detalleCancelado=false
         val posts=listOf(Post(1,1,"Título","Contenido"))
+        override suspend fun pagina(inicio:Int,limite:Int,usuario:Int?):Result<List<Post>> = (if(usuario==null)listar() else porUsuario(usuario)).map { it.drop(inicio).take(limite) }
         override suspend fun listar():Result<List<Post>> { listas++;return if(fallo)Result.failure(IOException()) else Result.success(posts) }
         override suspend fun porUsuario(userId:Int):Result<List<Post>> { filtro=userId;return Result.success(posts.map { it.copy(userId=userId) }) }
         override suspend fun detalle(id:Int):Result<Post> {

@@ -13,6 +13,24 @@ class PostRepositoryConCache(private val remoto:PostRepository,private val bd:Mu
     private val _sinConexion=MutableStateFlow(false)
     override val sinConexion=_sinConexion.asStateFlow()
 
+    override suspend fun pagina(inicio:Int,limite:Int,usuario:Int?):Result<List<Post>> {
+        val clave="${usuario ?: 0}:$inicio:$limite"
+        return leer(
+            red={ remoto.pagina(inicio,limite,usuario) },
+            guardar={ posts -> bd.withTransaction {
+                dao.guardar(posts.map(Post::entidad))
+                dao.guardarPagina(PaginaEntity(clave,posts.joinToString(",") { it.id.toString() }))
+            } },
+            local={
+                val pagina=dao.pagina(clave)
+                if(pagina==null)null else {
+                    val ids=pagina.ids.split(',').mapNotNull(String::toIntOrNull)
+                    val guardados=dao.porIds(ids).associateBy { it.id }
+                    if(guardados.size!=ids.size)null else ids.map { guardados.getValue(it).modelo() }
+                }
+            }
+        )
+    }
     override suspend fun listar()=leer(
         red={ remoto.listar() },guardar={ dao.guardar(it.map(Post::entidad)) },
         local={ dao.todas().map(PostEntity::modelo).takeIf { it.isNotEmpty() } }

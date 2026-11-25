@@ -84,3 +84,19 @@ Compórtate como un experto en Room y Repository. Ayúdame a guardar en Room los
 
 **Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
 
+## 6. Paginacion
+
+```text
+Compórtate como un experto en paginación REST con Kotlin. Ayúdame a cargar veinte posts por página con _start y _limit, combinados con userId cuando corresponda. Añade PostApi.pagina, Repository y PostsViewModel; reinicia offset al cambiar usuario, cancela la petición anterior, conserva lo ya leído al fallar Cargar más, permite reintentar sin duplicar y detén al llegar al final. Buscar filtra solo lo descargado, con esa limitación visible y posibilidad de cargar más. La caché debe cubrir páginas y filtros sin inventar continuidad cuando faltan registros.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 6 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Cambié la carga del muro a páginas de veinte con filtros, fin de lista y reintento sin duplicados.
+
+**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+
+**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+

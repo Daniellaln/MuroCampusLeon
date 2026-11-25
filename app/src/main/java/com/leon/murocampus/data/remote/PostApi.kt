@@ -2,6 +2,7 @@ package com.leon.murocampus.data.remote
 import com.leon.murocampus.model.*
 import retrofit2.http.*
 interface PostApi {
+    @GET("posts") suspend fun pagina(@Query("_start") inicio:Int,@Query("_limit") limite:Int,@Query("userId") usuario:Int?=null):List<Post>
     @GET("posts") suspend fun listar():List<Post>
     @GET("posts/{id}") suspend fun detalle(@Path("id") id:Int):Post
     @GET("posts/{id}/comments") suspend fun comentarios(@Path("id") id:Int):List<Comentario>

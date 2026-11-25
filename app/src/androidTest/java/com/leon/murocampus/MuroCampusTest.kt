@@ -19,6 +19,7 @@ class MuroCampusTest {
         override val sinConexion=kotlinx.coroutines.flow.MutableStateFlow(false)
         var fallo=false;var listas=0;var filtro:Int?=null;var enviados=0
         val posts=(1..100).map { Post((it-1)/10+1,it,"Publicación $it","Contenido de práctica $it") }
+        override suspend fun pagina(inicio:Int,limite:Int,usuario:Int?):Result<List<Post>> = (if(usuario==null)listar() else porUsuario(usuario)).map { it.drop(inicio).take(limite) }
         override suspend fun listar():Result<List<Post>> { listas++;delay(40);return if(fallo)Result.failure(IOException()) else Result.success(posts) }
         override suspend fun detalle(id:Int):Result<Post> { delay(40);return if(fallo)Result.failure(IOException()) else Result.success(posts.first { it.id==id }) }
         override suspend fun comentarios(id:Int):Result<List<Comentario>> { delay(40);return Result.success((1..5).map { Comentario(id,it,"Respuesta","correo$it@campus.test","Comentario $it") }) }

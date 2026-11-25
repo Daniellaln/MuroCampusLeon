@@ -28,16 +28,43 @@ class PostsViewModel(private val repo:PostRepository):ViewModel() {
         if(_usuarioFiltro.value==userId)return
         _usuarioFiltro.value=userId;cargar()
     }
+    private var siguienteInicio=0
+    private val tamanoPagina=20
+    private val _hayMas=MutableStateFlow(false)
+    val hayMas=_hayMas.asStateFlow()
+    private val _cargandoMas=MutableStateFlow(false)
+    val cargandoMas=_cargandoMas.asStateFlow()
+    private val _errorMas=MutableStateFlow<String?>(null)
+    val errorMas=_errorMas.asStateFlow()
+
     init { cargar() }
     fun cargar() {
         cargaLista?.cancel()
         val filtro=_usuarioFiltro.value
+        siguienteInicio=0;_hayMas.value=false;_cargandoMas.value=false;_errorMas.value=null
         cargaLista=viewModelScope.launch {
             _lista.value=UiState.Cargando
-            val resultado=if(filtro==null)repo.listar() else repo.porUsuario(filtro)
+            val resultado=repo.pagina(0,tamanoPagina,filtro)
             ensureActive()
-            resultado.onSuccess { _lista.value=UiState.Exito(it) }
-                .onFailure { _lista.value=UiState.Error(mensajeDe(it)) }
+            resultado.onSuccess {
+                siguienteInicio=it.size;_hayMas.value=it.size==tamanoPagina
+                _lista.value=UiState.Exito(it.distinctBy(Post::id))
+            }.onFailure { _lista.value=UiState.Error(mensajeDe(it)) }
+        }
+    }
+    fun cargarMas() {
+        if(!_hayMas.value || _cargandoMas.value)return
+        val anteriores=(_lista.value as? UiState.Exito)?.datos ?: return
+        val filtro=_usuarioFiltro.value;val inicio=siguienteInicio
+        _cargandoMas.value=true;_errorMas.value=null
+        cargaLista=viewModelScope.launch {
+            try {
+                val resultado=repo.pagina(inicio,tamanoPagina,filtro);ensureActive()
+                resultado.onSuccess {
+                    siguienteInicio=inicio+it.size;_hayMas.value=it.size==tamanoPagina
+                    _lista.value=UiState.Exito((anteriores+it).distinctBy(Post::id))
+                }.onFailure { _errorMas.value=mensajeDe(it) }
+            } finally { _cargandoMas.value=false }
         }
     }
     private val _detalle=MutableStateFlow<UiState<DetalleUi>>(UiState.Cargando)
