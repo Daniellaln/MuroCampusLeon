@@ -1,0 +1,605 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-25T07:08:12.232245+00:00",
+  "title": "Design System: MuroCampus",
+  "extensions": {
+    "colorMeta": {
+      "primary": {
+        "role": "primary",
+        "displayName": "Verde de lectura",
+        "tonalRamp": [
+          "oklch(15% 0.07024 168.10)",
+          "oklch(27% 0.07024 168.10)",
+          "oklch(38% 0.07024 168.10)",
+          "oklch(50% 0.07024 168.10)",
+          "oklch(62% 0.07024 168.10)",
+          "oklch(74% 0.07024 168.10)",
+          "oklch(85% 0.07024 168.10)",
+          "oklch(95% 0.07024 168.10)"
+        ]
+      },
+      "on-primary": {
+        "role": "primary",
+        "displayName": "Tinta sobre selección verde",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(27% 0.00000 0.00)",
+          "oklch(38% 0.00000 0.00)",
+          "oklch(50% 0.00000 0.00)",
+          "oklch(62% 0.00000 0.00)",
+          "oklch(74% 0.00000 0.00)",
+          "oklch(85% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "primary-container": {
+        "role": "primary",
+        "displayName": "Verde agua",
+        "tonalRamp": [
+          "oklch(15% 0.02494 160.57)",
+          "oklch(27% 0.02494 160.57)",
+          "oklch(38% 0.02494 160.57)",
+          "oklch(50% 0.02494 160.57)",
+          "oklch(62% 0.02494 160.57)",
+          "oklch(74% 0.02494 160.57)",
+          "oklch(85% 0.02494 160.57)",
+          "oklch(95% 0.02494 160.57)"
+        ]
+      },
+      "on-primary-container": {
+        "role": "primary",
+        "displayName": "Tinta verde agua",
+        "tonalRamp": [
+          "oklch(15% 0.04942 170.31)",
+          "oklch(27% 0.04942 170.31)",
+          "oklch(38% 0.04942 170.31)",
+          "oklch(50% 0.04942 170.31)",
+          "oklch(62% 0.04942 170.31)",
+          "oklch(74% 0.04942 170.31)",
+          "oklch(85% 0.04942 170.31)",
+          "oklch(95% 0.04942 170.31)"
+        ]
+      },
+      "secondary-container": {
+        "role": "secondary",
+        "displayName": "Rosa de guardado",
+        "tonalRamp": [
+          "oklch(15% 0.02029 345.70)",
+          "oklch(27% 0.02029 345.70)",
+          "oklch(38% 0.02029 345.70)",
+          "oklch(50% 0.02029 345.70)",
+          "oklch(62% 0.02029 345.70)",
+          "oklch(74% 0.02029 345.70)",
+          "oklch(85% 0.02029 345.70)",
+          "oklch(95% 0.02029 345.70)"
+        ]
+      },
+      "on-secondary-container": {
+        "role": "secondary",
+        "displayName": "Tinta rosa",
+        "tonalRamp": [
+          "oklch(15% 0.08097 351.36)",
+          "oklch(27% 0.08097 351.36)",
+          "oklch(38% 0.08097 351.36)",
+          "oklch(50% 0.08097 351.36)",
+          "oklch(62% 0.08097 351.36)",
+          "oklch(74% 0.08097 351.36)",
+          "oklch(85% 0.08097 351.36)",
+          "oklch(95% 0.08097 351.36)"
+        ]
+      },
+      "background": {
+        "role": "neutral",
+        "displayName": "Blanco fresco de fondo",
+        "tonalRamp": [
+          "oklch(15% 0.00498 165.01)",
+          "oklch(27% 0.00498 165.01)",
+          "oklch(38% 0.00498 165.01)",
+          "oklch(50% 0.00498 165.01)",
+          "oklch(62% 0.00498 165.01)",
+          "oklch(74% 0.00498 165.01)",
+          "oklch(85% 0.00498 165.01)",
+          "oklch(95% 0.00498 165.01)"
+        ]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Superficie",
+        "tonalRamp": [
+          "oklch(15% 0.00000 0.00)",
+          "oklch(27% 0.00000 0.00)",
+          "oklch(38% 0.00000 0.00)",
+          "oklch(50% 0.00000 0.00)",
+          "oklch(62% 0.00000 0.00)",
+          "oklch(74% 0.00000 0.00)",
+          "oklch(85% 0.00000 0.00)",
+          "oklch(95% 0.00000 0.00)"
+        ]
+      },
+      "on-surface": {
+        "role": "neutral",
+        "displayName": "Tinta de lectura",
+        "tonalRamp": [
+          "oklch(15% 0.03884 171.89)",
+          "oklch(27% 0.03884 171.89)",
+          "oklch(38% 0.03884 171.89)",
+          "oklch(50% 0.03884 171.89)",
+          "oklch(62% 0.03884 171.89)",
+          "oklch(74% 0.03884 171.89)",
+          "oklch(85% 0.03884 171.89)",
+          "oklch(95% 0.03884 171.89)"
+        ]
+      },
+      "surface-variant": {
+        "role": "neutral",
+        "displayName": "Verde de apoyo",
+        "tonalRamp": [
+          "oklch(15% 0.01077 158.84)",
+          "oklch(27% 0.01077 158.84)",
+          "oklch(38% 0.01077 158.84)",
+          "oklch(50% 0.01077 158.84)",
+          "oklch(62% 0.01077 158.84)",
+          "oklch(74% 0.01077 158.84)",
+          "oklch(85% 0.01077 158.84)",
+          "oklch(95% 0.01077 158.84)"
+        ]
+      },
+      "on-surface-variant": {
+        "role": "neutral",
+        "displayName": "Tinta secundaria",
+        "tonalRamp": [
+          "oklch(15% 0.02886 163.51)",
+          "oklch(27% 0.02886 163.51)",
+          "oklch(38% 0.02886 163.51)",
+          "oklch(50% 0.02886 163.51)",
+          "oklch(62% 0.02886 163.51)",
+          "oklch(74% 0.02886 163.51)",
+          "oklch(85% 0.02886 163.51)",
+          "oklch(95% 0.02886 163.51)"
+        ]
+      },
+      "surface-container": {
+        "role": "neutral",
+        "displayName": "Contenedor de aviso",
+        "tonalRamp": [
+          "oklch(15% 0.00993 155.10)",
+          "oklch(27% 0.00993 155.10)",
+          "oklch(38% 0.00993 155.10)",
+          "oklch(50% 0.00993 155.10)",
+          "oklch(62% 0.00993 155.10)",
+          "oklch(74% 0.00993 155.10)",
+          "oklch(85% 0.00993 155.10)",
+          "oklch(95% 0.00993 155.10)"
+        ]
+      },
+      "outline-variant": {
+        "role": "neutral",
+        "displayName": "Línea suave",
+        "tonalRamp": [
+          "oklch(15% 0.01764 153.54)",
+          "oklch(27% 0.01764 153.54)",
+          "oklch(38% 0.01764 153.54)",
+          "oklch(50% 0.01764 153.54)",
+          "oklch(62% 0.01764 153.54)",
+          "oklch(74% 0.01764 153.54)",
+          "oklch(85% 0.01764 153.54)",
+          "oklch(95% 0.01764 153.54)"
+        ]
+      },
+      "error": {
+        "role": "secondary",
+        "displayName": "Rosa de error",
+        "tonalRamp": [
+          "oklch(15% 0.14892 15.29)",
+          "oklch(27% 0.14892 15.29)",
+          "oklch(38% 0.14892 15.29)",
+          "oklch(50% 0.14892 15.29)",
+          "oklch(62% 0.14892 15.29)",
+          "oklch(74% 0.14892 15.29)",
+          "oklch(85% 0.14892 15.29)",
+          "oklch(95% 0.14892 15.29)"
+        ]
+      },
+      "primary-dark": {
+        "role": "primary",
+        "displayName": "Verde de lectura · noche",
+        "tonalRamp": [
+          "oklch(15% 0.06335 162.01)",
+          "oklch(27% 0.06335 162.01)",
+          "oklch(38% 0.06335 162.01)",
+          "oklch(50% 0.06335 162.01)",
+          "oklch(62% 0.06335 162.01)",
+          "oklch(74% 0.06335 162.01)",
+          "oklch(85% 0.06335 162.01)",
+          "oklch(95% 0.06335 162.01)"
+        ]
+      },
+      "on-primary-dark": {
+        "role": "primary",
+        "displayName": "Tinta sobre selección verde · noche",
+        "tonalRamp": [
+          "oklch(15% 0.05304 163.67)",
+          "oklch(27% 0.05304 163.67)",
+          "oklch(38% 0.05304 163.67)",
+          "oklch(50% 0.05304 163.67)",
+          "oklch(62% 0.05304 163.67)",
+          "oklch(74% 0.05304 163.67)",
+          "oklch(85% 0.05304 163.67)",
+          "oklch(95% 0.05304 163.67)"
+        ]
+      },
+      "primary-container-dark": {
+        "role": "primary",
+        "displayName": "Verde agua · noche",
+        "tonalRamp": [
+          "oklch(15% 0.05950 161.67)",
+          "oklch(27% 0.05950 161.67)",
+          "oklch(38% 0.05950 161.67)",
+          "oklch(50% 0.05950 161.67)",
+          "oklch(62% 0.05950 161.67)",
+          "oklch(74% 0.05950 161.67)",
+          "oklch(85% 0.05950 161.67)",
+          "oklch(95% 0.05950 161.67)"
+        ]
+      },
+      "on-primary-container-dark": {
+        "role": "primary",
+        "displayName": "Tinta verde agua · noche",
+        "tonalRamp": [
+          "oklch(15% 0.03978 159.20)",
+          "oklch(27% 0.03978 159.20)",
+          "oklch(38% 0.03978 159.20)",
+          "oklch(50% 0.03978 159.20)",
+          "oklch(62% 0.03978 159.20)",
+          "oklch(74% 0.03978 159.20)",
+          "oklch(85% 0.03978 159.20)",
+          "oklch(95% 0.03978 159.20)"
+        ]
+      },
+      "secondary-container-dark": {
+        "role": "secondary",
+        "displayName": "Rosa de guardado · noche",
+        "tonalRamp": [
+          "oklch(15% 0.04583 343.26)",
+          "oklch(27% 0.04583 343.26)",
+          "oklch(38% 0.04583 343.26)",
+          "oklch(50% 0.04583 343.26)",
+          "oklch(62% 0.04583 343.26)",
+          "oklch(74% 0.04583 343.26)",
+          "oklch(85% 0.04583 343.26)",
+          "oklch(95% 0.04583 343.26)"
+        ]
+      },
+      "on-secondary-container-dark": {
+        "role": "secondary",
+        "displayName": "Tinta rosa · noche",
+        "tonalRamp": [
+          "oklch(15% 0.03579 346.13)",
+          "oklch(27% 0.03579 346.13)",
+          "oklch(38% 0.03579 346.13)",
+          "oklch(50% 0.03579 346.13)",
+          "oklch(62% 0.03579 346.13)",
+          "oklch(74% 0.03579 346.13)",
+          "oklch(85% 0.03579 346.13)",
+          "oklch(95% 0.03579 346.13)"
+        ]
+      },
+      "background-dark": {
+        "role": "neutral",
+        "displayName": "Blanco fresco de fondo · noche",
+        "tonalRamp": [
+          "oklch(15% 0.02085 168.33)",
+          "oklch(27% 0.02085 168.33)",
+          "oklch(38% 0.02085 168.33)",
+          "oklch(50% 0.02085 168.33)",
+          "oklch(62% 0.02085 168.33)",
+          "oklch(74% 0.02085 168.33)",
+          "oklch(85% 0.02085 168.33)",
+          "oklch(95% 0.02085 168.33)"
+        ]
+      },
+      "surface-dark": {
+        "role": "neutral",
+        "displayName": "Superficie · noche",
+        "tonalRamp": [
+          "oklch(15% 0.02728 163.52)",
+          "oklch(27% 0.02728 163.52)",
+          "oklch(38% 0.02728 163.52)",
+          "oklch(50% 0.02728 163.52)",
+          "oklch(62% 0.02728 163.52)",
+          "oklch(74% 0.02728 163.52)",
+          "oklch(85% 0.02728 163.52)",
+          "oklch(95% 0.02728 163.52)"
+        ]
+      },
+      "on-surface-dark": {
+        "role": "neutral",
+        "displayName": "Tinta de lectura · noche",
+        "tonalRamp": [
+          "oklch(15% 0.01828 155.80)",
+          "oklch(27% 0.01828 155.80)",
+          "oklch(38% 0.01828 155.80)",
+          "oklch(50% 0.01828 155.80)",
+          "oklch(62% 0.01828 155.80)",
+          "oklch(74% 0.01828 155.80)",
+          "oklch(85% 0.01828 155.80)",
+          "oklch(95% 0.01828 155.80)"
+        ]
+      },
+      "surface-variant-dark": {
+        "role": "neutral",
+        "displayName": "Verde de apoyo · noche",
+        "tonalRamp": [
+          "oklch(15% 0.03317 157.74)",
+          "oklch(27% 0.03317 157.74)",
+          "oklch(38% 0.03317 157.74)",
+          "oklch(50% 0.03317 157.74)",
+          "oklch(62% 0.03317 157.74)",
+          "oklch(74% 0.03317 157.74)",
+          "oklch(85% 0.03317 157.74)",
+          "oklch(95% 0.03317 157.74)"
+        ]
+      },
+      "on-surface-variant-dark": {
+        "role": "neutral",
+        "displayName": "Tinta secundaria · noche",
+        "tonalRamp": [
+          "oklch(15% 0.02740 155.85)",
+          "oklch(27% 0.02740 155.85)",
+          "oklch(38% 0.02740 155.85)",
+          "oklch(50% 0.02740 155.85)",
+          "oklch(62% 0.02740 155.85)",
+          "oklch(74% 0.02740 155.85)",
+          "oklch(85% 0.02740 155.85)",
+          "oklch(95% 0.02740 155.85)"
+        ]
+      },
+      "surface-container-dark": {
+        "role": "neutral",
+        "displayName": "Contenedor de aviso · noche",
+        "tonalRamp": [
+          "oklch(15% 0.03293 159.42)",
+          "oklch(27% 0.03293 159.42)",
+          "oklch(38% 0.03293 159.42)",
+          "oklch(50% 0.03293 159.42)",
+          "oklch(62% 0.03293 159.42)",
+          "oklch(74% 0.03293 159.42)",
+          "oklch(85% 0.03293 159.42)",
+          "oklch(95% 0.03293 159.42)"
+        ]
+      },
+      "outline-variant-dark": {
+        "role": "neutral",
+        "displayName": "Línea suave · noche",
+        "tonalRamp": [
+          "oklch(15% 0.04073 153.53)",
+          "oklch(27% 0.04073 153.53)",
+          "oklch(38% 0.04073 153.53)",
+          "oklch(50% 0.04073 153.53)",
+          "oklch(62% 0.04073 153.53)",
+          "oklch(74% 0.04073 153.53)",
+          "oklch(85% 0.04073 153.53)",
+          "oklch(95% 0.04073 153.53)"
+        ]
+      },
+      "error-dark": {
+        "role": "secondary",
+        "displayName": "Rosa de error · noche",
+        "tonalRamp": [
+          "oklch(15% 0.09314 10.94)",
+          "oklch(27% 0.09314 10.94)",
+          "oklch(38% 0.09314 10.94)",
+          "oklch(50% 0.09314 10.94)",
+          "oklch(62% 0.09314 10.94)",
+          "oklch(74% 0.09314 10.94)",
+          "oklch(85% 0.09314 10.94)",
+          "oklch(95% 0.09314 10.94)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "headline-medium": {
+        "displayName": "Cabecera Comunidad",
+        "purpose": "Cabecera contextual del muro; unidades sp nativas."
+      },
+      "headline-small": {
+        "displayName": "Título de lectura",
+        "purpose": "Título completo del detalle y encabezado de Personas."
+      },
+      "title-large": {
+        "displayName": "Título del feed",
+        "purpose": "Tres líneas como máximo en el feed; marca con variante ExtraBold."
+      },
+      "title-medium": {
+        "displayName": "Título de grupo",
+        "purpose": "Comentarios, resultados y navegación de pantallas."
+      },
+      "title-small": {
+        "displayName": "Identidad de apoyo",
+        "purpose": "Contadores, nombres y encabezados secundarios."
+      },
+      "body-large": {
+        "displayName": "Cuerpo de lectura",
+        "purpose": "Texto completo seleccionable de la publicación."
+      },
+      "body-medium": {
+        "displayName": "Cuerpo secundario",
+        "purpose": "Comentarios y mensajes de estado."
+      },
+      "body-small": {
+        "displayName": "Metadatos",
+        "purpose": "Nombre de usuario, alcance y procedencia local."
+      },
+      "label-large": {
+        "displayName": "Etiqueta de acción",
+        "purpose": "Acciones y nombre del autor."
+      },
+      "label-medium": {
+        "displayName": "Etiqueta compacta",
+        "purpose": "Iniciales y acceso a personas."
+      },
+      "label-small": {
+        "displayName": "Nombre breve",
+        "purpose": "Nombre compacto en los accesos rápidos de personas."
+      }
+    },
+    "shadows": [
+      {
+        "name": "glass-button",
+        "value": "Android elevation: 7dp; pressed: 2dp; ambient: primary alpha 0.09; spot: primary alpha 0.13",
+        "purpose": "Profundidad del botón. No es una sombra CSS ni refracción del fondo."
+      },
+      {
+        "name": "glass-icon",
+        "value": "Android elevation: 3dp; ambient: primary alpha 0.07; spot: primary alpha 0.10",
+        "purpose": "Separar iconos de vidrio de la superficie."
+      }
+    ],
+    "motion": [
+      {
+        "name": "glass-press",
+        "value": "spring(dampingRatio=0.78, stiffness=680); scaleX=0.965; scaleY=0.935; rotationZ=0.15deg",
+        "purpose": "Presión del botón principal y secundario; snap con animaciones desactivadas."
+      },
+      {
+        "name": "glass-icon-press",
+        "value": "spring(dampingRatio=0.8, stiffness=800); scale=0.91",
+        "purpose": "Presión del icono de vidrio; snap con animaciones desactivadas."
+      },
+      {
+        "name": "feed-open",
+        "value": "spring(dampingRatio=0.88, stiffness=700); scale=0.988",
+        "purpose": "Presión de la fila; mantiene legible el título."
+      },
+      {
+        "name": "save-press",
+        "value": "spring(dampingRatio=0.72, stiffness=620); scale=0.87",
+        "purpose": "Marcador con vibración ToggleOn/ToggleOff."
+      },
+      {
+        "name": "navigation",
+        "value": "fadeIn 180ms + slideInHorizontally 220ms (width/14); fadeOut 100ms",
+        "purpose": "Navegación breve; EnterTransition.None y ExitTransition.None cuando la escala Android es cero."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Botón de vidrio principal",
+      "kind": "button",
+      "refersTo": "button-glass-primary",
+      "description": "Publicar o enviar. Traducción estática de Compose a CSS; las transparencias son reales, el resorte nativo no es una curva CSS.",
+      "html": "<button class=\"ds-glass\"><svg viewBox=\"0 0 24 24\" width=\"21\" height=\"21\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"/></svg><span>Publicar</span></button>",
+      "css": ".ds-glass{font-family:Manrope,system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 22px;border:1px solid #D7E3DA;border-radius:28px;color:#173E32;background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(216,235,224,.64),rgba(216,235,224,.92));font-size:15px;font-weight:600;line-height:22px;cursor:pointer;transition:transform .14s,background .14s;} .ds-glass:hover{background:linear-gradient(135deg,#fff,rgba(216,235,224,.8),#D8EBE0);} .ds-glass:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-glass:active{transform:scale(.965,.935) rotate(.15deg);} .ds-glass:disabled{background:#E8F0EB;color:#53675D;cursor:default;} @media(prefers-reduced-motion:reduce){.ds-glass{transition:none;} .ds-glass:active{transform:none;}}"
+    },
+    {
+      "name": "Botón de vidrio secundario",
+      "kind": "button",
+      "refersTo": "button-glass-secondary",
+      "description": "Cargar más, reintentar o volver. La muestra usa el matiz de superficie del control nativo.",
+      "html": "<button class=\"ds-glass ds-glass-secondary\"><svg viewBox=\"0 0 24 24\" width=\"21\" height=\"21\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"/></svg><span>Cargar más</span></button>",
+      "css": ".ds-glass{font-family:Manrope,system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 22px;border:1px solid #D7E3DA;border-radius:28px;color:#173E32;background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(216,235,224,.64),rgba(216,235,224,.92));font-size:15px;font-weight:600;line-height:22px;cursor:pointer;transition:transform .14s,background .14s;} .ds-glass:hover{background:linear-gradient(135deg,#fff,rgba(216,235,224,.8),#D8EBE0);} .ds-glass:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-glass:active{transform:scale(.965,.935) rotate(.15deg);} .ds-glass:disabled{background:#E8F0EB;color:#53675D;cursor:default;} @media(prefers-reduced-motion:reduce){.ds-glass{transition:none;} .ds-glass:active{transform:none;}} .ds-glass-secondary{color:#28634F;background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(255,255,255,.64),rgba(255,255,255,.92));} .ds-glass-secondary:hover{background:#fff;} .ds-glass-secondary:active{background:#EDF4EF;}"
+    },
+    {
+      "name": "Icono de vidrio",
+      "kind": "button",
+      "refersTo": "button-glass-icon",
+      "description": "Acción de búsqueda de 48dp con descripción accesible; equivalencia visual a escala base.",
+      "html": "<button class=\"ds-glass-icon\" aria-label=\"Buscar publicaciones\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"/><path d=\"m15.3 15.3 4.2 4.2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"/></svg></button>",
+      "css": ".ds-glass-icon{font-family:Manrope,system-ui,sans-serif;display:inline-grid;place-items:center;width:48px;height:48px;border:1px solid #D7E3DA;border-radius:50%;background:linear-gradient(135deg,#fff,rgba(245,229,237,.3),rgba(216,235,224,.3));color:#28634F;cursor:pointer;transition:transform .14s;} .ds-glass-icon:hover{background:#EDF4EF;} .ds-glass-icon:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-glass-icon:active{transform:scale(.91);} @media(prefers-reduced-motion:reduce){.ds-glass-icon{transition:none;} .ds-glass-icon:active{transform:none;}}"
+    },
+    {
+      "name": "Buscar por título",
+      "kind": "input",
+      "refersTo": "input-search",
+      "description": "Campo delineado que se muestra al solicitar búsqueda. El rótulo exterior debe explicar si busca en descargas o guardadas.",
+      "html": "<label class=\"ds-search-label\">Buscar por título<div class=\"ds-search-wrap\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><circle cx=\"10.5\" cy=\"10.5\" r=\"6.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"/><path d=\"m15.3 15.3 4.2 4.2\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"/></svg><input class=\"ds-search\" type=\"search\" aria-label=\"Buscar por título\" placeholder=\"Escribe un título\"/></div></label>",
+      "css": ".ds-search-label{font-family:Manrope,system-ui,sans-serif;display:block;color:#53675D;font-size:12px;line-height:19px;} .ds-search-wrap{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #7D9387;border-radius:16px;padding:12px 16px;color:#28634F;} .ds-search{font-family:Manrope,system-ui,sans-serif;min-width:0;flex:1;border:0;background:transparent;color:#203D34;font-size:16px;line-height:26px;} .ds-search-wrap:hover{border-color:#53675D;} .ds-search:focus-visible{outline:none;} .ds-search-wrap:focus-within{outline:2px solid #28634F;outline-offset:3px;}"
+    },
+    {
+      "name": "Filtro de persona seleccionado",
+      "kind": "chip",
+      "refersTo": "chip-person-selected",
+      "description": "Iniciales de autor de la API. El control de 48dp declara el nombre completo y su selección.",
+      "html": "<button class=\"ds-person\" aria-label=\"Filtrar por Leanne Graham\" aria-pressed=\"true\">LG</button>",
+      "css": ".ds-person{font-family:Manrope,system-ui,sans-serif;display:inline-grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:#28634F;color:#fff;font-size:13px;font-weight:600;line-height:20px;cursor:pointer;} .ds-person:hover{background:#173E32;} .ds-person:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-person:active{background:#244F3B;}"
+    },
+    {
+      "name": "Marcador guardado",
+      "kind": "button",
+      "refersTo": "button-saved-selected",
+      "description": "Estado Guardada en este dispositivo. El botón nativo añade vibración y resorte al alternar.",
+      "html": "<button class=\"ds-saved\" aria-label=\"Quitar de guardadas\" aria-pressed=\"true\" title=\"Guardada en este dispositivo\"><svg viewBox=\"0 0 24 24\" width=\"23\" height=\"23\" aria-hidden=\"true\"><path d=\"M6 4h12v16l-6-4-6 4V4Z\" fill=\"currentColor\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-saved{display:inline-grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;color:#713C55;background:#F5E5ED;cursor:pointer;transition:transform .14s;} .ds-saved:hover{background:#F8DCEA;} .ds-saved:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-saved:active{transform:scale(.87);} @media(prefers-reduced-motion:reduce){.ds-saved{transition:none;} .ds-saved:active{transform:none;}}"
+    },
+    {
+      "name": "Pestañas del muro",
+      "kind": "nav",
+      "refersTo": "nav-tabs",
+      "description": "Navegación Material entre Muro y Guardadas. La muestra representa el estado Muro.",
+      "html": "<nav class=\"ds-tabs\" aria-label=\"Lecturas\"><button class=\"ds-tab ds-tab-selected\" aria-current=\"page\">Muro</button><button class=\"ds-tab\">Guardadas</button></nav>",
+      "css": ".ds-tabs{display:flex;background:#F4F8F6;border-bottom:1px solid #D7E3DA;} .ds-tab{font-family:Manrope,system-ui,sans-serif;flex:1;min-height:48px;border:0;border-bottom:3px solid transparent;padding:12px 16px;background:transparent;color:#53675D;font-size:15px;font-weight:600;line-height:22px;cursor:pointer;} .ds-tab-selected{border-bottom-color:#28634F;color:#28634F;} .ds-tab:hover{background:#EDF4EF;} .ds-tab:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-tab:active{background:#D8EBE0;}"
+    },
+    {
+      "name": "Fila abierta de publicación",
+      "kind": "custom",
+      "refersTo": "feed-row",
+      "description": "Autor real y título original en tres líneas; sin extracto ni portada. La muestra usa una publicación de JSONPlaceholder.",
+      "html": "<article class=\"ds-feed\"><div class=\"ds-author\"><span class=\"ds-avatar\" aria-hidden=\"true\">LG</span><div><span class=\"ds-author-name\">Leanne Graham</span><span class=\"ds-author-handle\">@Bret</span></div></div><button class=\"ds-feed-open\"><span>sunt aut facere repellat provident occaecati excepturi optio reprehenderit</span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></article>",
+      "css": ".ds-feed{font-family:Manrope,system-ui,sans-serif;max-width:600px;color:#203D34;border-bottom:1px solid rgba(215,227,218,.65);} .ds-author{display:flex;align-items:center;gap:10px;padding-top:14px;} .ds-avatar{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#D8EBE0;color:#173E32;font-size:13px;font-weight:600;line-height:20px;} .ds-author-name{display:block;font-size:15px;font-weight:600;line-height:22px;} .ds-author-handle{display:block;color:#53675D;font-size:12px;line-height:19px;} .ds-feed-open{font-family:Manrope,system-ui,sans-serif;display:flex;align-items:center;gap:16px;width:100%;min-height:48px;padding:8px 0 22px;background:transparent;color:#203D34;border:0;text-align:left;font-size:21px;font-weight:700;line-height:28px;cursor:pointer;} .ds-feed-open span{flex:1;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;} .ds-feed-open svg{flex:none;color:#28634F;} .ds-feed-open:hover{color:#28634F;} .ds-feed-open:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-feed-open:active{opacity:.85;}"
+    },
+    {
+      "name": "Aviso de copia disponible",
+      "kind": "custom",
+      "refersTo": "notice",
+      "description": "Contenedor tonal para procedencia local y avisos concretos. Nunca afirma sincronización remota.",
+      "html": "<div class=\"ds-notice\" role=\"status\"><svg viewBox=\"0 0 24 24\" width=\"19\" height=\"19\" aria-hidden=\"true\"><circle cx=\"12\" cy=\"12\" r=\"9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\"/><path d=\"M12 11v6M12 7v.5\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"/></svg><span>Sin conexión · copia disponible</span></div>",
+      "css": ".ds-notice{font-family:Manrope,system-ui,sans-serif;display:flex;align-items:flex-start;gap:10px;padding:12px;border-radius:12px;background:#EDF4EF;color:#53675D;font-size:12px;line-height:19px;} .ds-notice svg{flex:none;color:#28634F;}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Atrio de campus con vidrio",
+    "overview": "Un espacio de lectura universitario luminoso y sereno. El blanco fresco y la tinta verde dejan respirar los títulos; el verde agua y el rosa aparecen en selecciones, iniciales y controles. Manrope mantiene una voz cercana sin perder claridad. La identidad confirmada pide cuidado femenino sutil, sin saturación ni fondo beige.\n\nEl contenido remoto conserva sus autores y sus textos originales. Las imágenes generadas aportan ambiente: el atrio no representa una ubicación verificada y las conversaciones de vidrio no son contenido de la API. La primera sustitución cromática y la posterior cuadrícula repetitiva fueron rechazadas; el muro vigente se expresa mediante lectura abierta y personas reconocibles. La composición específica del muro vive en su brief, no impone una plantilla a cada pantalla futura.",
+    "keyCharacteristics": [
+      "Blanco fresco, tinta verde profunda y rosa ligero en pequeñas superficies de estado.",
+      "Tipografía Manrope, títulos claros y texto completo en la lectura.",
+      "Controles de vidrio inspirado con respuesta breve al tacto.",
+      "Autoría real, alcance de búsqueda explícito y guardadas identificadas como copias del dispositivo.",
+      "Tema oscuro y respeto por las preferencias de tamaño de texto y movimiento de Android."
+    ],
+    "rules": [
+      {
+        "name": "The Paired Ink Rule",
+        "body": "Usar cada contenedor con su tinta del tema; las transparencias decorativas no se aplican al texto.",
+        "section": "colors"
+      },
+      {
+        "name": "The Reading First Rule",
+        "body": "Limitar el título del feed a tres líneas; al abrirlo mostrar título y cuerpo completos, sin exigir una expansión adicional.",
+        "section": "typography"
+      },
+      {
+        "name": "The Honest Glass Rule",
+        "body": "Describir el material como vidrio inspirado; reservar la profundidad para los controles y no atribuir refracción real a una capa transparente.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "**Do** conservar Manrope, blanco fresco, verde suave y rosa ligero con sus parejas de tinta de los dos temas.",
+      "**Do** mantener superficies táctiles de al menos 48 dp y comprobar la interfaz con fuente a 1.3, tema oscuro y escala de animación a cero.",
+      "**Do** mostrar autoría de la API, iniciales coherentes y los títulos originales; identificar el fallback Usuario cuando falte el nombre.",
+      "**Do** mantener el cuerpo completo seleccionable y los estados de comentarios independientes de la lectura.",
+      "**Do** describir el alcance local de búsqueda, la persistencia de Guardadas en el dispositivo y el carácter simulado de las escrituras remotas.",
+      "**Do** conservar la procedencia de cada imagen que se distribuya y tratar campus e ilustraciones como ambientación generada."
+    ],
+    "donts": [
+      "**Don't** volver a la sustitución de paleta de fase 1 ni a la cuadrícula repetitiva rechazada para el muro actual.",
+      "**Don't** añadir extractos, portadas decorativas por post o un CTA repetido a cada fila del feed vigente.",
+      "**Don't** fabricar noticias, fotos de autores, instituciones o datos que la API no suministra.",
+      "**Don't** convertir el vidrio inspirado en una promesa de refracción, transparencia óptica real o tecnología de Apple.",
+      "**Don't** ocultar el cuerpo del detalle tras Leer más ni bloquearlo cuando fallen los comentarios.",
+      "**Don't** teñir el fondo de beige, saturar el rosa o aplicar transparencia al texto para simular vidrio."
+    ]
+  }
+}

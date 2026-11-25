@@ -10,5 +10,17 @@
     "prompt": "Use case: product-mockup. Asset type: a small premium 3D illustration for empty search and offline states in MuroCampus Android student community app. Isolated icon-like sculptural object on a genuinely transparent background: a softly rounded clear glass speech bubble resting against a pale sage green speech bubble with three small inset dots, one tiny pale blush pink glass sphere nearby. Polished optically clear glass edges with narrow white specular highlights and realistic translucent depth, minimal contemporary product rendering. Carefully authored, feminine subtle refinement, not toys or glossy plastic, no heavy texture, no vivid saturated pink. Three-quarter view, compact centered composition with generous transparent margins and a subtle contact shadow under objects only. No text, no letters, no UI, no border or framing, no full background, no flowers or people.",
     "tool": "image_gen",
     "role": "vacío y error"
+  },
+  {
+    "name": "conversacion_verde.png",
+    "prompt": "Use case: product-mockup. Asset type: decorative cover artwork for compact publication tiles inside MuroCampus Android app, never actual post photography and no UI. Create a gorgeous contemporary 3D art-directed still life, wide landscape. A large rounded transparent sage-green glass speech-bubble sculpture rests physically on a pale mint architectural ledge; a smaller completely clear glass bubble overlaps it, and one tiny blush-pink rounded form balances the scene. Close crop with the sculptures anchored to the scene, on the right-center, clean luminous white background seamlessly transitioning into the mint ledge. Bright daylight through a window, realistic crisp caustic light patterns and lens-like clear glass rims, fine reflections, soft natural cast shadows. Sophisticated feminine subtlety, fresh youthful digital editorial aesthetic, not children's cartoon toys. Beautiful pastel green and cool white, faint pink only. The forms fill most of the frame so they stay recognizable in an 180px wide thumbnail. No text, letters, numbers, logos, watermark, UI, paper or beige. A complete integrated scene, not floating stickers. Landscape aspect about 2:1.",
+    "tool": "image_gen",
+    "role": "portada decorativa de conversación, no foto del post"
+  },
+  {
+    "name": "conversacion_rosa.png",
+    "prompt": "Use case: product-mockup. Asset type: decorative cover artwork for compact publication tiles inside MuroCampus Android app, not actual post photography, not UI. Match a current premium 3D glass still-life art direction. A sculptural clear pale blush-pink glass speech bubble leans against a wide curved white ceramic arch, next to a smaller translucent sage-green glass bubble. Grounded on a smooth cool-white tabletop under a bright window, with beautiful tight highlights on the optically clear rounded edges and soft realistic shadows. Delicate sunlight caustics run over the tabletop. Composition is lively but minimal, close crop, shapes large and anchored to the surface. Fresh white, very gentle blush pink, soft sage accents, no saturated pink wash. Scene should look designed with care, feminine and sophisticated, modern editorial not cartoon. No words, numbers, logos, watermark, UI, paper, beige or floating stickers. Wide horizontal aspect about 2:1, usable as a thumbnail cover.",
+    "tool": "image_gen",
+    "role": "portada decorativa de conversación, no foto del post"
   }
 ]

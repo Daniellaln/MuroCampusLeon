@@ -1,23 +1,109 @@
+@file:OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 package com.leon.murocampus.ui
+
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.*
+import androidx.compose.animation.core.*
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.background
+import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalDensity
+import androidx.compose.foundation.isSystemInDarkTheme
+import kotlinx.coroutines.launch
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.ui.Modifier
+import androidx.compose.ui.*
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.semantics.*
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.dp
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.leon.murocampus.R
+import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable fun MuroCampusApp(vm:PostsViewModel) {
+import com.leon.murocampus.viewmodel.GuardadosViewModel
+
+@Composable fun MuroCampusApp(vm:PostsViewModel,guardadosVm:GuardadosViewModel?=null) { MotionSettings {
+    val scrollMuro=rememberLazyListState()
+    val scrollGuardadas=rememberLazyListState()
+    val alcance=rememberCoroutineScope()
+    var viendoGuardadas by rememberSaveable { mutableStateOf(false) }
+    val autores by vm.autores.collectAsStateWithLifecycle()
+    val guardados=guardadosVm?.guardados?.collectAsStateWithLifecycle()?.value.orEmpty()
+    val guardadosCargando=guardadosVm?.cargando?.collectAsStateWithLifecycle()?.value ?: false
+    val errorGuardados=guardadosVm?.error?.collectAsStateWithLifecycle()?.value
+    var borradorModificado by rememberSaveable { mutableStateOf(false) }
+    var confirmarSalida by remember { mutableStateOf(false) }
+    var ruta by rememberSaveable { mutableStateOf("muro") }
     var idSeleccionado by rememberSaveable { mutableStateOf<Int?>(null) }
-    var editando by rememberSaveable { mutableStateOf(false) }
-    var creando by rememberSaveable { mutableStateOf(false) }
-    fun volver() { if(editando) { vm.cerrarEdicion();editando=false } else if(creando) { vm.cerrarCreacion();creando=false } else { vm.cerrarDetalle();idSeleccionado=null } }
-    BackHandler(idSeleccionado!=null || creando) { volver() }
-    Scaffold(topBar={
-        TopAppBar(title={ Text(if(editando)"Editar publicación" else if(creando)"Crear publicación" else if(idSeleccionado!=null)"Detalle de publicación" else "MuroCampus") },navigationIcon={ if(idSeleccionado!=null || creando)IconButton(::volver) { Icon(painterResource(R.drawable.ic_volver),"Volver") } },colors=TopAppBarDefaults.topAppBarColors(containerColor=MaterialTheme.colorScheme.primary,titleContentColor=MaterialTheme.colorScheme.onPrimary,navigationIconContentColor=MaterialTheme.colorScheme.onPrimary))
-    },floatingActionButton={ if(!creando && idSeleccionado==null)FloatingActionButton(onClick={ vm.prepararCreacion();creando=true }) { Icon(painterResource(R.drawable.ic_agregar),"Crear publicación") } }) { margen ->
-        Box(Modifier.fillMaxSize().padding(margen).imePadding()) { if(editando) { val post=(vm.detalle.value as? com.leon.murocampus.model.UiState.Exito)?.datos?.post;if(post!=null)PantallaEditar(vm,post) } else if(creando)PantallaCrear(vm) else if(idSeleccionado!=null)PantallaDetalle(vm,idSeleccionado!!) { vm.prepararEdicion();editando=true } else PantallaLista(vm) { id -> vm.abrir(id);idSeleccionado=id } }
+    var menu by remember { mutableStateOf(false) }
+    var confirmar by remember { mutableStateOf(false) }
+    var info by remember { mutableStateOf(false) }
+    val detalle by vm.detalle.collectAsStateWithLifecycle()
+    val eliminacion by vm.eliminacion.collectAsStateWithLifecycle()
+    fun salir() {
+        borradorModificado=false
+        menu=false;confirmar=false
+        when(ruta) {
+            "editar" -> { vm.cerrarEdicion();ruta="detalle" }
+            "crear" -> { vm.cerrarCreacion();ruta="muro" }
+            else -> { vm.cerrarDetalle();idSeleccionado=null;ruta="muro" }
+        }
     }
-}
+    fun volverAlMuro() { vm.cerrarCreacion();vm.cerrarEdicion();vm.cerrarDetalle();borradorModificado=false;idSeleccionado=null;ruta="muro" }
+    fun volver() { if(borradorModificado && ruta in listOf("crear","editar"))confirmarSalida=true else salir() }
+    BackHandler(ruta!="muro") { volver() }
+    if(confirmarSalida)AlertDialog(onDismissRequest={ confirmarSalida=false },title={ Text("¿Descartar el borrador?") },text={ Text("Los cambios que no enviaste se perderán.") },confirmButton={ TextButton(onClick={ confirmarSalida=false;salir() }) { Text("Descartar") } },dismissButton={ TextButton(onClick={ confirmarSalida=false }) { Text("Seguir escribiendo") } })
+    LaunchedEffect(idSeleccionado,guardadosCargando) { idSeleccionado?.let { id -> if(!viendoGuardadas)vm.abrir(id) else if(!guardadosCargando && vm.detalle.value !is UiState.Exito) { guardados.firstOrNull { it.id==id }?.let(vm::abrirGuardado) ?: vm.abrir(id) } } }
+    val c=MaterialTheme.colorScheme
+    if(errorGuardados!=null)AlertDialog(onDismissRequest={ guardadosVm?.limpiarError() },title={ Text("No se pudo guardar") },text={ Text(errorGuardados) },confirmButton={ TextButton(onClick={ guardadosVm?.limpiarError() }) { Text("Entendido") } })
+    if(info)AlertDialog(onDismissRequest={ info=false },title={ Text("Sobre el muro") },text={ Text("Publicaciones de práctica de JSONPlaceholder. Los textos de relleno vienen de la API. Crear, editar y eliminar se simulan; al recargar vuelven los datos originales. La copia sin conexión conserva lo que ya descargaste.") },confirmButton={ TextButton(onClick={ info=false }) { Text("Entendido") } })
+    if(confirmar)AlertDialog(onDismissRequest={ confirmar=false },icon={ Icon(painterResource(R.drawable.ic_eliminar),null,tint=c.error) },
+        title={ Text("¿Eliminar publicación?") },text={ Text("Esta solicitud es una simulación. La publicación seguirá disponible al actualizar el muro.") },
+        confirmButton={ TextButton(onClick={ confirmar=false;idSeleccionado?.let(vm::eliminar) }) { Text("Eliminar",color=c.error) } },
+        dismissButton={ TextButton(onClick={ confirmar=false }) { Text("Cancelar") } })
+    val tecladoVisible=WindowInsets.ime.getBottom(LocalDensity.current)>0
+    CompositionLocalProvider(LocalAutores provides autores,LocalGuardados provides guardados,LocalGuardar provides { post -> guardadosVm?.alternar(post) }) {
+    Box(Modifier.fillMaxSize().background(c.background)) {
+    Scaffold(containerColor=Color.Transparent,contentColor=c.onBackground,modifier=Modifier.semantics { testTagsAsResourceId=true },topBar={
+        TopAppBar(title={
+            if(ruta=="muro")Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)) {
+                Image(painterResource(R.drawable.ic_muro),null,Modifier.size(34.dp))
+                Text("MuroCampus",style=MaterialTheme.typography.titleLarge,fontWeight=FontWeight.ExtraBold)
+            } else Text(when(ruta) { "crear"->"Crear publicación";"editar"->"Editar publicación";else->"Publicación" },style=MaterialTheme.typography.titleMedium)
+        },navigationIcon={ if(ruta!="muro")Box(Modifier.padding(start=12.dp,end=8.dp)) { GlassIconButton(R.drawable.ic_volver,"Volver",::volver) } },
+        actions={
+            if(ruta=="muro") {
+                GlassIconButton(R.drawable.ic_recargar,"Actualizar muro",vm::cargar)
+                Spacer(Modifier.width(8.dp))
+                IconButton(onClick={ info=true }) { Icon(painterResource(R.drawable.ic_info),"Sobre los datos",Modifier.size(22.dp)) }
+            } else if(ruta=="detalle")Box(Modifier.padding(end=16.dp)) {
+                GlassIconButton(R.drawable.ic_mas,"Opciones de publicación",{ menu=true },enabled=detalle is UiState.Exito && eliminacion!=UiState.Cargando)
+                DropdownMenu(expanded=menu,onDismissRequest={ menu=false }) {
+                    DropdownMenuItem(text={ Text("Editar publicación") },leadingIcon={ Icon(painterResource(R.drawable.ic_editar),null) },onClick={ menu=false;vm.prepararEdicion();ruta="editar" })
+                    DropdownMenuItem(text={ Text("Eliminar publicación",color=c.error) },leadingIcon={ Icon(painterResource(R.drawable.ic_eliminar),null,tint=c.error) },onClick={ menu=false;vm.prepararEliminacion();confirmar=true })
+                }
+            }
+        },colors=TopAppBarDefaults.topAppBarColors(containerColor=c.background,titleContentColor=c.onBackground))
+    },floatingActionButton={ if(ruta=="muro" && !tecladoVisible)GlassButton("Publicar",{ vm.prepararCreacion();ruta="crear" },icon=R.drawable.ic_agregar,primary=true) }) { margen ->
+        Box(Modifier.fillMaxSize().padding(margen).imePadding(),contentAlignment=Alignment.TopCenter) {
+            val motion=LocalMotionEnabled.current
+            AnimatedContent(targetState=ruta,modifier=Modifier.widthIn(max=760.dp).fillMaxSize(),label="navegación del muro",transitionSpec={
+                if(motion)(fadeIn(tween(180))+slideInHorizontally(tween(220)) { if(targetState=="muro")-it/14 else it/14 }) togetherWith fadeOut(tween(100))
+                else EnterTransition.None togetherWith ExitTransition.None
+            }) { pantalla ->
+                when(pantalla) {
+                    "crear" -> PantallaCrear(vm,::volverAlMuro) { borradorModificado=it }
+                    "editar" -> { val post=(detalle as? UiState.Exito)?.datos?.post;if(post!=null)PantallaEditar(vm,post,::volverAlMuro) { borradorModificado=it } else Cargando("Cargando publicación…") }
+                    "detalle" -> PantallaDetalle(vm,idSeleccionado ?: 1,::volverAlMuro)
+                    else -> PantallaLista(vm,if(viendoGuardadas)scrollGuardadas else scrollMuro,viendoGuardadas,{ viendoGuardadas=it;vm.buscar("");alcance.launch { (if(it)scrollGuardadas else scrollMuro).scrollToItem(0) } }) { id -> if(viendoGuardadas)vm.abrirGuardado(guardados.first { it.id==id });idSeleccionado=id;ruta="detalle" }
+                }
+            }
+        }
+    }
+} } } }

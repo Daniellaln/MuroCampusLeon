@@ -57,6 +57,9 @@ class PostRepositoryTest {
     @Test fun ioTieneMensajeDeConexionYCancelacionSeRelanza()=runTest {
         assertTrue(mensajeDe(IOException()).contains("Sin conexión a internet"))
         val api=object:PostApi {
+            override suspend fun pagina(inicio:Int,limite:Int,usuario:Int?):List<Post> = emptyList()
+            override suspend fun editar(id:Int,cambios:EditarPost):Post=error("No usado")
+            override suspend fun eliminar(id:Int):retrofit2.Response<Unit> = retrofit2.Response.success(Unit)
             override suspend fun listar():List<Post> = throw CancellationException("Cancelado")
             override suspend fun detalle(id:Int):Post=error("No usado")
             override suspend fun comentarios(id:Int):List<Comentario> = emptyList()

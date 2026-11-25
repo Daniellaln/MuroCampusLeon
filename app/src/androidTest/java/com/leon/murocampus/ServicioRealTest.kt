@@ -27,6 +27,12 @@ class ServicioRealTest {
                     assertEquals(id,repo.detalle(id).getOrThrow().id)
                     val comentarios=repo.comentarios(id).getOrThrow();assertEquals(5,comentarios.size);assertTrue(comentarios.all { it.postId==id })
                 }
+                val primera=repo.pagina(0,20,null).getOrThrow();val segunda=repo.pagina(20,20,null).getOrThrow()
+                assertEquals(20,primera.size);assertEquals(20,segunda.size);assertTrue(primera.none { a -> segunda.any { it.id==a.id } })
+                assertEquals(10,repo.pagina(0,20,2).getOrThrow().size)
+                val original=repo.detalle(1).getOrThrow()
+                assertEquals("Edicion de practica",repo.editar(1,EditarPost("Edicion de practica","Contenido de practica")).getOrThrow().title)
+                assertEquals(200,repo.eliminar(1).getOrThrow());assertEquals(original,repo.detalle(1).getOrThrow())
                 val inexistente=repo.detalle(9999);assertTrue(inexistente.isFailure)
                 assertEquals("Error del servidor (404)",mensajeDe(inexistente.exceptionOrNull()!!))
                 val nuevo=repo.crear(NuevoPost(1,"Aviso del campus","Hola desde MuroCampus")).getOrThrow()

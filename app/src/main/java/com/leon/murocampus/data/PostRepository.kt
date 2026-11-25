@@ -3,8 +3,13 @@ import com.leon.murocampus.data.remote.PostApi
 import com.leon.murocampus.model.*
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.asStateFlow
+private val sinAvisoCache=kotlinx.coroutines.flow.MutableStateFlow<String?>(null).asStateFlow()
 interface PostRepository {
     val sinConexion:kotlinx.coroutines.flow.StateFlow<Boolean>
+    /** true indica que el recurso visible procede de una copia local. */
+    val origenDetalle:kotlinx.coroutines.flow.StateFlow<Boolean> get()=sinConexion
+    val origenComentarios:kotlinx.coroutines.flow.StateFlow<Boolean> get()=sinConexion
+    val avisoCache:kotlinx.coroutines.flow.StateFlow<String?> get()=sinAvisoCache
 
     suspend fun pagina(inicio:Int,limite:Int,usuario:Int?):Result<List<Post>>
     suspend fun listar():Result<List<Post>>

@@ -16,9 +16,9 @@ Compórtate como un experto en Android con Retrofit y OkHttp. Ayúdame a agregar
 
 **Diferencia frente a la base:** Añadí el encabezado Accept JSON a todas las peticiones con un interceptor de OkHttp.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** Un interceptor evita repetir el encabezado en cada ruta y cubre también las operaciones nuevas.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** GET, POST, PATCH y DELETE contienen Accept: application/json; el cuerpo no cambia.
 
 ## 2. Busqueda
 
@@ -32,9 +32,9 @@ Compórtate como un experto en MVVM y StateFlow. Ayúdame a buscar por título e
 
 **Diferencia frente a la base:** Agregué la búsqueda por título sobre las publicaciones descargadas y la combiné con el filtro de usuario.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** Buscar en memoria evita una solicitud por tecla; el alcance descargado debe quedar claro.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** Escribir no hace llamadas de red; limpiar restaura lo descargado y el filtro sigue activo.
 
 ## 3. Editar
 
@@ -48,9 +48,9 @@ Compórtate como un experto en REST y Jetpack Compose. Necesito editar título y
 
 **Diferencia frente a la base:** Añadí la edición del título y contenido con PATCH, validación y respuesta visible del servidor.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** Mostrar la respuesta de PATCH no significa que el servidor de práctica guardó el cambio.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** Campos vacíos deshabilitan guardar; el error conserva texto y el éxito muestra la respuesta.
 
 ## 4. Eliminar
 
@@ -64,9 +64,9 @@ Compórtate como un experto en Kotlin, Retrofit y UX de acciones destructivas. A
 
 **Diferencia frente a la base:** Agregué eliminar una publicación con confirmación y comprobación del código de respuesta DELETE.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** Confirmar la acción y revisar el código protege de un borrado accidental y de falsos éxitos.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** Cancelar no envía DELETE; 200/204 son éxito y una respuesta 403 sigue siendo error.
 
 ## 5. Cache room
 
@@ -80,9 +80,9 @@ Compórtate como un experto en Room y Repository. Ayúdame a guardar en Room los
 
 **Diferencia frente a la base:** Guardé las publicaciones y comentarios consultados en Room para poder leerlos sin conexión.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** La caché permite seguir leyendo; no debe ocultar errores HTTP ni inventar páginas no consultadas.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** Cierra y reabre Room sin red: solo se leen las páginas y comentarios que ya existían.
 
 ## 6. Paginacion
 
@@ -96,14 +96,14 @@ Compórtate como un experto en paginación REST con Kotlin. Ayúdame a cargar ve
 
 **Diferencia frente a la base:** Cambié la carga del muro a páginas de veinte con filtros, fin de lista y reintento sin duplicados.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** Al fallar una página se conserva lo que ya se estaba leyendo y se reintenta el mismo inicio.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** Carga 20, luego 40, cambia usuario y prueba un fallo de Cargar más sin duplicados.
 
 ## 7. Recursos visuales
 
 ```text
-Compórtate como un experto en recursos de Android. Ayúdame a integrar los recursos versionados de MuroCampus: campus_atrio.png y conversaciones_vacio.png en app/src/main/res/drawable-nodpi; Manrope local en res/font; SVG editables en diseno/iconos y sus VectorDrawable en drawable. Consulta diseno/RECURSOS.md para nombres, procedencia y prompts de imágenes. No sustituyas la foto por un gradiente ni uses emojis para iconos. La ilustración transparente corresponde a vacíos/errores; la foto es ambientación del campus, no la imagen de una publicación de la API. Conserva las licencias de la fuente.
+Compórtate como un experto en recursos de Android. Ayúdame a integrar los recursos versionados de MuroCampus: campus_atrio.png, conversaciones_vacio.png, conversacion_verde.png y conversacion_rosa.png en app/src/main/res/drawable-nodpi; Manrope local en res/font; SVG editables en diseno/iconos y sus VectorDrawable en drawable. Consulta diseno/RECURSOS.md para nombres, procedencia y prompts de imágenes. No sustituyas la foto por un gradiente ni uses emojis para iconos. La ilustración transparente corresponde a vacíos/errores; la foto es ambientación del campus, no la imagen de una publicación de la API. Conserva las licencias de la fuente.
 ```
 
 | Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
@@ -112,7 +112,23 @@ Compórtate como un experto en recursos de Android. Ayúdame a integrar los recu
 
 **Diferencia frente a la base:** Creé las imágenes del campus y del estado vacío, los iconos SVG y la tipografía local del rediseño.
 
-**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+**Reflexión:** La foto ambienta el campus; no se atribuye a publicaciones que no incluyen imágenes en la API.
 
-**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+**Qué comprobar:** Los dos PNG se cargan localmente, el vacío conserva transparencia y los iconos son VectorDrawable.
+
+## 8. Diseno animaciones
+
+```text
+Compórtate como un experto en diseño Android, Material 3 y MVVM. Necesito replicar la versión final de MuroCampus siguiendo DESIGN.md, docs/capturas_fase2 y docs/AUDITORIA_APLICADA.md. Usa Manrope y la paleta blanco fresco/verde suave/rosa ligero del tema. El muro es un feed de lectura con nombres de GET users, username e iniciales, títulos legibles de hasta tres líneas y marcador Guardar para leer. No repitas portadas ni extractos. Usa campus_atrio como ambiente compacto y conversaciones_vacio para vacíos. Personas filtra por autor; las pestañas Muro/Guardadas separan lo remoto de snapshots locales. Buscar usa solo lo descargado y muestra resultados y alcance. Implementa usuarios en Room versión 2 con MIGRACION_1_2; separa fallos de autores y comentarios sin ocultar posts. GuardadosRepository con JSON completo, IO y Mutex permite volver a leer offline. MainActivity conecta ambos ViewModels; LocalAutores/LocalGuardados/LocalGuardar distribuyen estado y acciones. El detalle muestra título y cuerpo completos, comentarios desplegables y Compartir. El editor protege borradores, reintenta con una sola acción y permite volver al muro tras éxito; PATCH/DELETE/POST siguen siendo simulados y lo explican. GlassButton/GlassIconButton tienen reflejo, presión y resorte, GuardarButton tiene semántica, vibración y animación breve. Respeta 48 dp, contraste, teclado, fuente130%, oscuro, horizontal y animaciones0; ningún movimiento permanente ni refracción inventada. Usa recursos versionados en drawable-nodpi, drawable, font y SVG de diseno/iconos. Prueba persistencia real y cada recorrido antes de continuar.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 8 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Convertí el muro en una comunidad con autores reales, guardadas sin conexión y lectura clara, protegí borradores y añadí vidrio y respuestas al tacto.
+
+**Reflexión:** La misma jerarquía y los mismos controles deben cuidar también el detalle y los estados de error.
+
+**Qué comprobar:** Recorre todos los estados con teclado, fuente 130 %, oscuro y animaciones desactivadas.
 
