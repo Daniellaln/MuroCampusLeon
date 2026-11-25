@@ -12,6 +12,16 @@ class PostsViewModel(private val repo:PostRepository):ViewModel() {
     private var cargaLista:Job?=null
     private val _usuarioFiltro=MutableStateFlow<Int?>(null)
     val usuarioFiltro=_usuarioFiltro.asStateFlow()
+    private val _busqueda=MutableStateFlow("")
+    val busqueda=_busqueda.asStateFlow()
+    val visibles=combine(lista,busqueda) { estado,consulta ->
+        when(estado) {
+            is UiState.Exito -> UiState.Exito(estado.datos.filter { it.title.contains(consulta.trim(),ignoreCase=true) })
+            is UiState.Error -> estado
+            UiState.Cargando -> UiState.Cargando
+        }
+    }.stateIn(viewModelScope,SharingStarted.Eagerly,UiState.Cargando)
+    fun buscar(texto:String) { _busqueda.value=texto }
     fun filtrar(userId:Int?) {
         if(userId!=null && userId !in 1..10)return
         if(_usuarioFiltro.value==userId)return

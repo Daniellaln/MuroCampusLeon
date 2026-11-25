@@ -20,3 +20,19 @@ Compórtate como un experto en Android con Retrofit y OkHttp. Ayúdame a agregar
 
 **Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
 
+## 2. Busqueda
+
+```text
+Compórtate como un experto en MVVM y StateFlow. Ayúdame a buscar por título en las publicaciones ya descargadas de MuroCampus, sin llamar a la API al escribir. Usa búsqueda sin distinguir mayúsculas, conserva el filtro de usuario y expón resultados desde PostsViewModel. Añade un campo etiquetado con limpiar, un vacío con acción para quitar la búsqueda y un indicador del alcance descargado. Conserva lista, detalle, crear y Compartir. Comprueba que escribir no produce nuevas solicitudes.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 2 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Agregué la búsqueda por título sobre las publicaciones descargadas y la combiné con el filtro de usuario.
+
+**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+
+**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+

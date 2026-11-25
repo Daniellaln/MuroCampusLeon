@@ -12,9 +12,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
 @Composable fun PantallaLista(vm:PostsViewModel,onAbrir:(Int)->Unit) {
-    val estado by vm.lista.collectAsStateWithLifecycle()
+    val estado by vm.visibles.collectAsStateWithLifecycle()
     val filtro by vm.usuarioFiltro.collectAsStateWithLifecycle()
+    val consulta by vm.busqueda.collectAsStateWithLifecycle()
     Column(Modifier.fillMaxSize()) {
+        OutlinedTextField(value=consulta,onValueChange=vm::buscar,label={ Text("Buscar por título") },singleLine=true,modifier=Modifier.fillMaxWidth().padding(horizontal=16.dp))
+        if(consulta.isNotBlank())TextButton(onClick={ vm.buscar("") }) { Text("Limpiar búsqueda") }
         LazyRow(Modifier.fillMaxWidth(),contentPadding=PaddingValues(horizontal=16.dp),horizontalArrangement=Arrangement.spacedBy(8.dp)) {
             item { FilterChip(selected=filtro==null,onClick={ vm.filtrar(null) },label={ Text("Todos") }) }
             items((1..10).toList()) { id -> FilterChip(selected=filtro==id,onClick={ vm.filtrar(id) },label={ Text("Usuario $id") }) }
