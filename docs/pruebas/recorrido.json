@@ -1,0 +1,37 @@
+{
+  "app": "com.leon.murocampus",
+  "emulador": "Pixel_8_Pro_2 API37",
+  "lista_real": true,
+  "detalle_cinco": true,
+  "query_usuario2": true,
+  "post101": true,
+  "compartir_solo_menu": true,
+  "lista_sin_red_y_reintento": true,
+  "detalle_sin_red_y_reintento": true,
+  "crear_conserva_texto_y_reintento": true,
+  "horizontal": [
+    2992,
+    1344
+  ],
+  "giro_no_recarga_lista": {
+    "antes": 37,
+    "despues": 37
+  },
+  "texto_130": true,
+  "capturas": [
+    "01_lista.png",
+    "02_detalle.png",
+    "03_filtro.png",
+    "04_crear.png",
+    "05_error_conexion.png",
+    "06_compartir.png",
+    "07_crear_vacio.png",
+    "08_creado.png",
+    "09_reintento.png",
+    "10_error_detalle.png",
+    "11_error_crear.png",
+    "12_reintento_crear.png",
+    "13_horizontal.png",
+    "14_texto_grande.png"
+  ]
+}

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="8" failures="0" errors="0" skipped="0" time="25.308" timestamp="2026-11-25T05:20:25" hostname="localhost">
+  <testsuite name="com.leon.murocampus.MuroCampusTest" tests="7" failures="0" errors="0" skipped="0" time="19.608" timestamp="2026-11-25T05:20:25" hostname="localhost">
+    <properties>
+      <property name="device" value="Pixel_8_Pro_2(AVD) - 17" />
+      <property name="flavor" value="" />
+      <property name="project" value=":app" />
+    </properties>
+    <testcase name="compartirIncluyeTituloTextoYEnlaceSinEnviarNada" classname="com.leon.murocampus.MuroCampusTest" time="3.76" />
+    <testcase name="formularioDeshabilitaVaciosYLimpiaTrasExito" classname="com.leon.murocampus.MuroCampusTest" time="4.392" />
+    <testcase name="detalleYRegresoMantienenLaLista" classname="com.leon.murocampus.MuroCampusTest" time="2.313" />
+    <testcase name="listaCargaLosCienPosts" classname="com.leon.murocampus.MuroCampusTest" time="1.94" />
+    <testcase name="errorDePublicacionConservaElTexto" classname="com.leon.murocampus.MuroCampusTest" time="3.308" />
+    <testcase name="filtroUsuarioDosYTODOSUsanRepository" classname="com.leon.murocampus.MuroCampusTest" time="1.987" />
+    <testcase name="errorListaSeRecuperaAlReintentar" classname="com.leon.murocampus.MuroCampusTest" time="1.908" />
+  </testsuite>
+  <testsuite name="com.leon.murocampus.ServicioRealTest" tests="1" failures="0" errors="0" skipped="0" time="4.629" timestamp="2026-11-25T05:20:25" hostname="localhost">
+    <properties>
+      <property name="device" value="Pixel_8_Pro_2(AVD) - 17" />
+      <property name="flavor" value="" />
+      <property name="project" value=":app" />
+    </properties>
+    <testcase name="endpointsRealesDeJsonPlaceholder" classname="com.leon.murocampus.ServicioRealTest" time="4.629" />
+  </testsuite>
+</testsuites>

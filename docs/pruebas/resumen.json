@@ -1,0 +1,30 @@
+[
+  {
+    "archivo": "instrumentadas.xml",
+    "tests": "8",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "archivo": "TEST-com.leon.murocampus.ModelosTest.xml",
+    "tests": "4",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "archivo": "TEST-com.leon.murocampus.PostRepositoryTest.xml",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  },
+  {
+    "archivo": "TEST-com.leon.murocampus.PostsViewModelTest.xml",
+    "tests": "7",
+    "failures": "0",
+    "errors": "0",
+    "skipped": "0"
+  }
+]

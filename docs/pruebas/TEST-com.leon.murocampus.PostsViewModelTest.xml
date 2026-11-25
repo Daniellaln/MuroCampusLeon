@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.leon.murocampus.PostsViewModelTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-11-25T05:17:40.280Z" hostname="WILLIAM" time="0.024">
+  <properties/>
+  <testcase name="fallaYReintentaSinRecrearViewModel" classname="com.leon.murocampus.PostsViewModelTest" time="0.009"/>
+  <testcase name="detalleTieneCincoComentariosYVolverNoRecargaLista" classname="com.leon.murocampus.PostsViewModelTest" time="0.006"/>
+  <testcase name="volverCancelaLaPeticionPendienteDelDetalle" classname="com.leon.murocampus.PostsViewModelTest" time="0.003"/>
+  <testcase name="crearValidaLimpiaEspaciosYConservaUserIdUno" classname="com.leon.murocampus.PostsViewModelTest" time="0.002"/>
+  <testcase name="filtrarLlamaAlRepositoryYTodosRegresaAListar" classname="com.leon.murocampus.PostsViewModelTest" time="0.001"/>
+  <testcase name="iniciaCargandoYDespuesExito" classname="com.leon.murocampus.PostsViewModelTest" time="0.001"/>
+  <testcase name="creacionFallidaSePuedeReintentar" classname="com.leon.murocampus.PostsViewModelTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
