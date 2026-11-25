@@ -14,9 +14,12 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
 @Composable fun PantallaDetalle(vm:PostsViewModel,id:Int,onEditar:(Post)->Unit={}) {
+    var confirmar by remember { mutableStateOf(false) }
+    val eliminacion by vm.eliminacion.collectAsStateWithLifecycle()
     val estado by vm.detalle.collectAsStateWithLifecycle()
         val contexto=LocalContext.current
         var errorCompartir by remember { mutableStateOf(false) }
+    if(confirmar)AlertDialog(onDismissRequest={ confirmar=false },title={ Text("¿Eliminar publicación?") },text={ Text("Se enviará la solicitud a la API de práctica. Es una simulación.") },confirmButton={ TextButton(onClick={ confirmar=false;vm.eliminar(id) }) { Text("Eliminar") } },dismissButton={ TextButton(onClick={ confirmar=false }) { Text("Cancelar") } })
     when(val actual=estado) {
         UiState.Cargando -> Cargando("Cargando publicación…")
         is UiState.Error -> ErrorConReintento(actual.mensaje) { vm.abrir(id) }
@@ -24,6 +27,13 @@ import com.leon.murocampus.viewmodel.PostsViewModel
             item {
                 Column(Modifier.fillMaxWidth().padding(vertical=8.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                     Text(actual.datos.post.title,style=MaterialTheme.typography.titleLarge,fontWeight=FontWeight.Bold)
+                    TextButton(onClick={ vm.prepararEliminacion();confirmar=true },enabled=eliminacion!=UiState.Cargando) { Text("Eliminar publicación",color=MaterialTheme.colorScheme.error) }
+                    when(val e=eliminacion) {
+                        is UiState.Exito -> Text("Eliminación recibida · código ${e.datos}. La API simula el borrado.")
+                        is UiState.Error -> ErrorConReintento(e.mensaje) { vm.eliminar(id) }
+                        UiState.Cargando -> LinearProgressIndicator(Modifier.fillMaxWidth())
+                        null -> Unit
+                    }
                     OutlinedButton(onClick={ onEditar(actual.datos.post) }) { Text("Editar publicación") }
                     Text(actual.datos.post.body,style=MaterialTheme.typography.bodyLarge)
                         OutlinedButton(onClick={

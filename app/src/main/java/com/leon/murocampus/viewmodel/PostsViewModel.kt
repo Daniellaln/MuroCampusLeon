@@ -58,8 +58,22 @@ class PostsViewModel(private val repo:PostRepository):ViewModel() {
             }
         }
     }
-    fun cerrarDetalle() { cargaDetalle?.cancel() }
+    fun cerrarDetalle() { cargaDetalle?.cancel();cerrarEliminacion() }
 
+    private val _eliminacion=MutableStateFlow<UiState<Int>?>(null)
+    val eliminacion=_eliminacion.asStateFlow()
+    private var borrado:Job?=null
+    fun prepararEliminacion() { borrado?.cancel();_eliminacion.value=null }
+    fun cerrarEliminacion() { borrado?.cancel();_eliminacion.value=null }
+    fun eliminar(id:Int) {
+        if(_eliminacion.value==UiState.Cargando)return
+        _eliminacion.value=UiState.Cargando
+        borrado=viewModelScope.launch {
+            val resultado=repo.eliminar(id);ensureActive()
+            resultado.onSuccess { _eliminacion.value=UiState.Exito(it) }
+                .onFailure { _eliminacion.value=UiState.Error(mensajeDe(it)) }
+        }
+    }
     private val _edicion=MutableStateFlow<UiState<Post>?>(null)
     val edicion=_edicion.asStateFlow()
     private var guardado:Job?=null

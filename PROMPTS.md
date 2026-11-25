@@ -52,3 +52,19 @@ Compórtate como un experto en REST y Jetpack Compose. Necesito editar título y
 
 **Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
 
+## 4. Eliminar
+
+```text
+Compórtate como un experto en Kotlin, Retrofit y UX de acciones destructivas. Ayúdame a eliminar desde el detalle con confirmación Material 3, Cancelar y Eliminar. PostApi debe usar DELETE posts/{id} y Response<Unit>; el Repository verifica isSuccessful, devuelve Result<Int> con el código real o un error, y relanza CancellationException. PostsViewModel expone carga, éxito y error; la vista nunca recibe Response ni llama al servicio. Tras éxito muestra el código y explica que la API simula la eliminación. No ocultes permanentemente datos que el servidor volverá a entregar.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 4 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Agregué eliminar una publicación con confirmación y comprobación del código de respuesta DELETE.
+
+**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+
+**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+

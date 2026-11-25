@@ -22,6 +22,7 @@ class PostsViewModelTest {
             return if(fallo)Result.failure(IOException()) else Result.success(posts.first().copy(id=id))
         }
         override suspend fun comentarios(id:Int)=Result.success((1..5).map { Comentario(id,it,"C","a@test.test","Texto") })
+        override suspend fun eliminar(id:Int)=Result.success(200)
         override suspend fun editar(id:Int,cambios:EditarPost)=Result.success(Post(1,id,cambios.title,cambios.body))
         override suspend fun crear(nuevo:NuevoPost):Result<Post> { creaciones++;return if(fallo)Result.failure(IOException()) else Result.success(Post(nuevo.userId,101,nuevo.title,nuevo.body)) }
     }
