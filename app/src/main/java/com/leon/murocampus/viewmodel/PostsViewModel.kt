@@ -50,5 +50,20 @@ class PostsViewModel(private val repo:PostRepository):ViewModel() {
     }
     fun cerrarDetalle() { cargaDetalle?.cancel() }
 
+    private val _creacion=MutableStateFlow<UiState<Post>?>(null)
+    val creacion=_creacion.asStateFlow()
+    private var envio:Job?=null
+    fun prepararCreacion() { envio?.cancel();_creacion.value=null }
+    fun cerrarCreacion() { envio?.cancel();_creacion.value=null }
+    fun publicar(titulo:String,texto:String) {
+        if(titulo.isBlank() || texto.isBlank() || _creacion.value==UiState.Cargando)return
+        _creacion.value=UiState.Cargando
+        envio=viewModelScope.launch {
+            val resultado=repo.crear(NuevoPost(userId=1,title=titulo.trim(),body=texto.trim()))
+            ensureActive()
+            resultado.onSuccess { _creacion.value=UiState.Exito(it) }
+                .onFailure { _creacion.value=UiState.Error(mensajeDe(it)) }
+        }
+    }
 
 }
