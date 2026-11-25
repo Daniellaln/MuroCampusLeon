@@ -1,4 +1,4 @@
-# Capturas · extensión social de fase 2
+# Capturas · diseño final de fase 2 de fase 2
 
 19 estados de la app real en emulador Pixel 8 Pro Android API 37 sobre Windows. Corresponden a la organización social incorporada en el décimo avance: avatar lateral, texto de publicación visible, acciones por fila y navegación inferior. No se cuentan como 19 pantallas distintas.
 

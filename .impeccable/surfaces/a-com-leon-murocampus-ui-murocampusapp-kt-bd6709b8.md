@@ -5,7 +5,7 @@ primary_target: "app/src/main/java/com/leon/murocampus/ui/MuroCampusApp.kt"
 related_targets: ["app/src/main/java/com/leon/murocampus/ui/PantallaLista.kt","app/src/main/java/com/leon/murocampus/ui/PantallaDetalle.kt","app/src/main/java/com/leon/murocampus/ui/Componentes.kt","app/src/main/java/com/leon/murocampus/ui/NavegacionSocial.kt","app/src/main/java/com/leon/murocampus/ui/FormularioPost.kt"]
 ---
 
-# MuroCampus · extensión social de fase 2
+# MuroCampus · diseño final de fase 2 de fase 2
 
 Modo Operate, Android nativo. Leer el muro y abrir una publicación es la tarea principal. Dirección confirmada por Daniella: blanco fresco, verde suave, rosa ligero, Manrope y controles de vidrio inspirado. Construcción directa en Compose.
 

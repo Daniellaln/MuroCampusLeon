@@ -1,8 +1,8 @@
-# Verificación · extensión social de fase 2
+# Verificación · diseño final de fase 2 de fase 2
 
 **77 pruebas aprobadas: 47 unitarias y 30 en Android**, sin fallos, errores ni omitidas. Los conteos se comprobaron directamente en los nueve XML unitarios y el XML instrumentado de esta ejecución. Las copias están en [pruebas_social](pruebas_social/); el [resumen JSON](pruebas_social/resumen.json) registra clases, archivos y fechas.
 
-Compilación y lint finalizaron con `BUILD SUCCESSFUL`: [compilación y pruebas unitarias](pruebas_social/social_build.log) y [pruebas instrumentadas y lint](pruebas_social/social_android.log). El [XML de lint](pruebas_social/lint.xml) contiene **0 errores y 19 advertencias**. Esta evidencia corresponde a la extensión posterior a los nueve avances; la [verificación histórica de 75 pruebas](VERIFICACION_FASE2.md) se conserva.
+Compilación y lint finalizaron con `BUILD SUCCESSFUL`: [compilación y pruebas unitarias](pruebas_social/social_build.log) y [pruebas instrumentadas y lint](pruebas_social/social_android.log). El [XML de lint](pruebas_social/lint.xml) contiene **0 errores y 19 advertencias**. Esta evidencia corresponde a la versión final de la fase 2; la [verificación histórica de 75 pruebas](VERIFICACION_FASE2.md) se conserva.
 
 ## Pruebas unitarias · 47
 

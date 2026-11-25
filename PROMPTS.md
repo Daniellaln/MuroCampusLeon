@@ -168,3 +168,11 @@ Mantén todos los recorridos existentes: filtro, detalle, comentarios, crear, ed
 | Bloque 10 | Pendiente de ejecutar por la estudiante | Implementación y revisión hechas con Codex; se retiraron el banner y los títulos grandes, se incorporó el cuerpo y acciones reales por post | Dar prioridad a las publicaciones y reproducir la organización pedida sin inventar funciones del servicio |
 
 **Qué comprobar:** el primer post aparece bajo la cabecera; su cuerpo es visible, los tres botones funcionan y la barra inferior conserva el contexto de lectura. Consulta docs/GALERIA_SOCIAL.md y docs/VERIFICACION_SOCIAL.md.
+
+## 11. Documentación en dos fases
+
+```text
+Compórtate como un experto en documentación de proyectos Android. Ayúdame a presentar MuroCampus únicamente en dos fases: fase 1 funcional en main y fase 2 con las mejoras y el diseño final en mejora-ia. La organización del feed inspirada en Threads y X forma parte de la fase 2. Corrige README, PRODUCT, DESIGN y las guías para que no parezca una tercera fase. Compara solo fase 1 y fase 2; conserva los commits y la evidencia histórica sin modificar la app.
+```
+
+Se aclaró la organización con asistencia de Codex. Este bloque queda preparado para reproducción con Gemini; no representa una sesión ejecutada allí.

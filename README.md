@@ -1,18 +1,20 @@
 # MuroCampus
 
-Daniella Leon · Laboratorio 09 · Fase 2
+Daniella Leon · Laboratorio 09
 
-Un muro Android para consultar publicaciones, reconocer a sus autores, leer comentarios y guardar lecturas en el dispositivo. La fase 2 añade las seis mejoras de la guía. Su extensión social organiza el feed con autores de la API, cuerpo original, acciones en cada fila y navegación inferior; la lectura completa sigue en el detalle.
+Solo hay dos fases: fase 1 funcional en main y fase 2 con mejoras y diseño final en mejora-ia. La organización inspirada en Threads y X pertenece a la fase 2.
+
+Un muro Android para consultar publicaciones, reconocer a sus autores, leer comentarios y guardar lecturas en el dispositivo. La fase 2 añade las seis mejoras de la guía. Su diseño final de fase 2 organiza el feed con autores de la API, cuerpo original, acciones en cada fila y navegación inferior; la lectura completa sigue en el detalle.
 
 [Rama main · fase 1](https://github.com/Daniellaln/MuroCampusLeon/tree/main) · [Rama mejora-ia · fase 2](https://github.com/Daniellaln/MuroCampusLeon/tree/mejora-ia) · [Prompts](PROMPTS.md) · [Código para exponer](docs/GUIA_CODIGO_FASE2.md)
 
 ## Antes y después
 
 <table>
-<tr><th>Fase 1 · main</th><th>Fase 2 · nueve avances</th><th>Extensión social · avance 10</th></tr>
-<tr><td><img src="docs/capturas/01_lista.png" width="220" alt="Lista de fase 1"></td><td><img src="docs/capturas_fase2/01_muro.png" width="220" alt="Organización anterior: campus y títulos grandes"></td><td><img src="docs/capturas_social/01_muro.png" width="220" alt="Muro social: avatar lateral, cuerpo y acciones visibles"></td></tr>
-<tr><td><img src="docs/capturas/02_detalle.png" width="220" alt="Detalle de fase 1"></td><td><img src="docs/capturas_fase2/05_detalle.png" width="220" alt="Detalle de los nueve avances"></td><td><img src="docs/capturas_social/07_detalle.png" width="220" alt="Detalle completo conservado en la extensión social"></td></tr>
-<tr><td><img src="docs/capturas/04_crear.png" width="220" alt="Formulario de fase 1"></td><td><img src="docs/capturas_fase2/11_crear.png" width="220" alt="Editor de los nueve avances"></td><td><img src="docs/capturas_social/13_crear.png" width="220" alt="Editor de creación conservado en la extensión social"></td></tr>
+<tr><th>Fase 1</th><th>Fase 2 · diseño final</th></tr>
+<tr><td><img src="docs/capturas/01_lista.png" width="230" alt="Muro de fase 1"></td><td><img src="docs/capturas_social/01_muro.png" width="230" alt="Muro final de fase 2"></td></tr>
+<tr><td><img src="docs/capturas/02_detalle.png" width="230" alt="Detalle de fase 1"></td><td><img src="docs/capturas_social/07_detalle.png" width="230" alt="Detalle de fase 2"></td></tr>
+<tr><td><img src="docs/capturas/04_crear.png" width="230" alt="Crear en fase 1"></td><td><img src="docs/capturas_social/13_crear.png" width="230" alt="Crear en fase 2"></td></tr>
 </table>
 
 Son capturas reales del emulador de Windows. La comparación del muro muestra el ajuste de organización solicitado con referencias de X y Threads. [Galería actual · 19 estados](docs/GALERIA_SOCIAL.md) · [Historial de fase 2 · 29 estados](docs/GALERIA_FASE2.md).
@@ -102,8 +104,8 @@ Room registra la pertenencia exacta de cada página, incluidos snapshots de cero
 
 ## Commits y comprobaciones
 
-main conserva los 12 commits de fase 1. Los nueve primeros avances de fase 2 están publicados y mantienen sus capturas, verificaciones y copias acumulativas. La organización social se documenta como décimo avance; conserva las seis mejoras y las funciones propias. La evidencia de un estado no se atribuye a otro commit.
+main conserva 12 commits de fase 1. mejora-ia reúne 11 commits de fase 2: mejoras funcionales, recursos, diseño y documentación. Los ajustes del feed son parte de esa misma fase; no existe una tercera fase.
 
-El cierre histórico de los nueve avances aprobó **75 pruebas: 47 unitarias y 28 en Android**, sin fallos ni omitidas; compilación y lint terminaron correctamente, con 19 advertencias y cero errores de lint. Sus XML y registros se conservan en [Verificación de fase 2](docs/VERIFICACION_FASE2.md). La extensión social aprueba **77 pruebas: 47 unitarias y 30 en Android**, sin fallos ni omitidas; compilación y lint terminan correctamente, con 19 advertencias y cero errores de lint. [Verificación actual y registros](docs/VERIFICACION_SOCIAL.md). El alcance disponible es un emulador Android API 37 sobre Windows; no se afirma prueba en teléfono físico ni en Mac. La prueba de Compartir abre la hoja de Android sin enviar mensajes a otras personas.
+El cierre histórico de los nueve avances aprobó **75 pruebas: 47 unitarias y 28 en Android**, sin fallos ni omitidas; compilación y lint terminaron correctamente, con 19 advertencias y cero errores de lint. Sus XML y registros se conservan en [Verificación de fase 2](docs/VERIFICACION_FASE2.md). La diseño final de fase 2 aprueba **77 pruebas: 47 unitarias y 30 en Android**, sin fallos ni omitidas; compilación y lint terminan correctamente, con 19 advertencias y cero errores de lint. [Verificación actual y registros](docs/VERIFICACION_SOCIAL.md). El alcance disponible es un emulador Android API 37 sobre Windows; no se afirma prueba en teléfono físico ni en Mac. La prueba de Compartir abre la hoja de Android sin enviar mensajes a otras personas.
 
 La implementación tuvo asistencia de Codex. PROMPTS.md contiene bloques para repetir el trabajo con Gemini; no inventa respuestas de una sesión de Gemini ni un porcentaje de similitud no medido.

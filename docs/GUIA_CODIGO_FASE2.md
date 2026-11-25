@@ -1,6 +1,6 @@
 # Dónde está cada cambio · fase 2
 
-Abre la versión vigente de mejora-ia, incluida la extensión social, en Android Studio y usa la vista Project. Los enlaces señalan líneas comprobadas de esta versión; Ctrl+L permite saltar a una línea. main tiene su propia [guía de fase 1](GUIA_CODIGO.md): no conviene atribuirle las líneas de la fase 2.
+Abre la versión vigente de mejora-ia, incluida la diseño final de fase 2, en Android Studio y usa la vista Project. Los enlaces señalan líneas comprobadas de esta versión; Ctrl+L permite saltar a una línea. main tiene su propia [guía de fase 1](GUIA_CODIGO.md): no conviene atribuirle las líneas de la fase 2.
 
 ## Mapa para encontrar conceptos
 
@@ -80,6 +80,6 @@ Compartir existe desde el avance 11 de fase 1 y sigue enviando título, texto y 
 
 Los tests de HTTP usan MockWebServer; los de ViewModel usan repositorios controlados. Room y preferencias tienen pruebas instrumentadas de cerrar/reabrir y persistencia. `ServicioRealTest` consulta JSONPlaceholder por HTTPS y demuestra los límites de escritura de ese servicio. Los resultados actuales y su alcance están en [Verificación social](VERIFICACION_SOCIAL.md), con 77 pruebas aprobadas; la [verificación histórica de los nueve avances](VERIFICACION_FASE2.md) conserva sus 75 casos. La [galería actual](GALERIA_SOCIAL.md) reúne los 19 estados de esta organización.
 
-Para señalar un avance exacto, abre Git → Log y revisa los archivos de ese commit. Las líneas anteriores describen el cierre final, no el estado de cada paso histórico. Los nueve primeros avances de fase 2 están publicados después de los doce de main y mantienen su evidencia histórica. La extensión social corresponde al décimo avance; su galería y sus comprobaciones deben identificarse por separado.
+Para señalar un avance exacto, abre Git → Log y revisa los archivos de ese commit. Las líneas anteriores describen el cierre final, no el estado de cada paso histórico. Los nueve primeros avances de fase 2 están publicados después de los doce de main y mantienen su evidencia histórica. La diseño final de fase 2 corresponde al décimo avance; su galería y sus comprobaciones deben identificarse por separado.
 
 La búsqueda mantiene el campo compuesto y el foco mientras se escribe; no fuerza un desplazamiento por cada pulsación. Las filas tienen claves estables. Cambiar de persona o abrir la búsqueda restablece el inicio por intención de la persona; el cierre limpia la consulta, el foco y el teclado.

@@ -16,7 +16,7 @@ Demostrar consultas REST, creación y mejoras de una publicación con MVVM y Rep
 
 ## Operating Context
 
-Kotlin, Jetpack Compose y Material 3. Paquete com.leon.murocampus. Guía GLAB-S09-JLEONS-2026.docx. main conserva los doce commits de fase 1; mejora-ia reúne los nueve avances publicados de fase 2 y una extensión de organización social. Cada avance tiene una copia completa acumulativa.
+Kotlin, Jetpack Compose y Material 3. Paquete com.leon.murocampus. Guía GLAB-S09-JLEONS-2026.docx. main conserva los doce commits de fase 1; mejora-ia reúne los nueve avances publicados de fase 2 y el diseño final de fase 2. Cada avance tiene una copia completa acumulativa.
 
 ## Capabilities and Constraints
 
@@ -28,7 +28,7 @@ Nombre MuroCampus. Daniella confirmó fondo blanco fresco, verde suave, rosa lig
 
 ## Evidence on Hand
 
-La fase 1 y los primeros nueve avances de fase 2 tienen sus capturas y verificaciones históricas en docs. Daniella aportó capturas de X y Threads para orientar la organización del feed, sin solicitar su paleta o identidad. La extensión social tiene 19 capturas propias en docs/capturas_social y una verificación separada de 77 pruebas aprobadas; las evidencias anteriores se conservan como historial. No hay logo institucional autorizado para este muro ni perfil autenticado.
+La fase 1 y los primeros nueve avances de fase 2 tienen sus capturas y verificaciones históricas en docs. Daniella aportó capturas de X y Threads para orientar la organización del feed, sin solicitar su paleta o identidad. La diseño final de fase 2 tiene 19 capturas propias en docs/capturas_social y una verificación separada de 77 pruebas aprobadas; las evidencias anteriores se conservan como historial. No hay logo institucional autorizado para este muro ni perfil autenticado.
 
 ## Product Principles
 
