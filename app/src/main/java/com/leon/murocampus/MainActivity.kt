@@ -4,13 +4,17 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.SystemBarStyle
-import androidx.compose.material3.*
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.leon.murocampus.data.PostRepositoryRemote
+import com.leon.murocampus.data.remote.RetrofitClient
+import com.leon.murocampus.viewmodel.*
+import com.leon.murocampus.ui.*
 import com.leon.murocampus.ui.theme.MuroCampusTheme
 class MainActivity:ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(statusBarStyle=SystemBarStyle.dark(0xFF1D709F.toInt()))
-        setContent { MuroCampusTheme { Scaffold(topBar={ TopAppBar(title={ Text("MuroCampus") },colors=TopAppBarDefaults.topAppBarColors(containerColor=MaterialTheme.colorScheme.primary,titleContentColor=MaterialTheme.colorScheme.onPrimary)) }) { _ -> } } }
+        val factory=PostsViewModelFactory(PostRepositoryRemote(RetrofitClient.api))
+        setContent { MuroCampusTheme { val vm:PostsViewModel=viewModel(factory=factory);MuroCampusApp(vm) } }
     }
 }
