@@ -23,6 +23,26 @@ class PostsViewModel(private val repo:PostRepository):ViewModel() {
                 .onFailure { _lista.value=UiState.Error(mensajeDe(it)) }
         }
     }
+    private val _detalle=MutableStateFlow<UiState<DetalleUi>>(UiState.Cargando)
+    val detalle=_detalle.asStateFlow()
+    private var cargaDetalle:Job?=null
+    fun abrir(id:Int) {
+        cargaDetalle?.cancel()
+        _detalle.value=UiState.Cargando
+        cargaDetalle=viewModelScope.launch {
+            coroutineScope {
+                val a=async { repo.detalle(id) }
+                val b=async { repo.comentarios(id) }
+                val post=a.await()
+                if(post.isFailure) { b.cancel();_detalle.value=UiState.Error(mensajeDe(post.exceptionOrNull()!!));return@coroutineScope }
+                val comentarios=b.await()
+                ensureActive()
+                comentarios.onSuccess { _detalle.value=UiState.Exito(DetalleUi(post.getOrThrow(),it)) }
+                    .onFailure { _detalle.value=UiState.Error(mensajeDe(it)) }
+            }
+        }
+    }
+    fun cerrarDetalle() { cargaDetalle?.cancel() }
 
 
 }
