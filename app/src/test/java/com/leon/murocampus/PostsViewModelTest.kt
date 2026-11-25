@@ -12,6 +12,7 @@ import org.junit.Assert.*
 class PostsViewModelTest {
     private val store=ViewModelStore()
     private class Repo:PostRepository {
+        override val sinConexion=kotlinx.coroutines.flow.MutableStateFlow(false)
         var listas=0;var filtro:Int?=null;var creaciones=0;var fallo=false
         var detalleBloqueado=false;var detalleCancelado=false
         val posts=listOf(Post(1,1,"Título","Contenido"))

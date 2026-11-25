@@ -6,6 +6,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.SystemBarStyle
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.leon.murocampus.data.PostRepositoryRemote
+import com.leon.murocampus.data.PostRepositoryConCache
+import com.leon.murocampus.data.local.MuroDatabase
 import com.leon.murocampus.data.remote.RetrofitClient
 import com.leon.murocampus.viewmodel.*
 import com.leon.murocampus.ui.*
@@ -14,7 +16,7 @@ class MainActivity:ComponentActivity() {
     override fun onCreate(savedInstanceState:Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge(statusBarStyle=SystemBarStyle.dark(0xFF1D709F.toInt()))
-        val factory=PostsViewModelFactory(PostRepositoryRemote(RetrofitClient.api))
+        val factory=PostsViewModelFactory(PostRepositoryConCache(PostRepositoryRemote(RetrofitClient.api),MuroDatabase.obtener(applicationContext)))
         setContent { MuroCampusTheme { val vm:PostsViewModel=viewModel(factory=factory);MuroCampusApp(vm) } }
     }
 }

@@ -68,3 +68,19 @@ Compórtate como un experto en Kotlin, Retrofit y UX de acciones destructivas. A
 
 **Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
 
+## 5. Cache room
+
+```text
+Compórtate como un experto en Room y Repository. Ayúdame a guardar en Room los posts descargados y los comentarios de los detalles ya abiertos. Crea entidades, DAO suspend, MuroDatabase singleton versión 1 y PostRepositoryConCache: consulta red primero y usa la copia local solo ante fallo de conexión, sin ocultar errores HTTP ni de conversión. Indica cuando se está leyendo sin conexión; conserva título/contenido completos y filtros. No almacenes como persistentes las escrituras simuladas de JSONPlaceholder. Prueba cerrar/reabrir Room y consultar offline. Ninguna referencia a Android Context o Room debe llegar al ViewModel.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 5 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Guardé las publicaciones y comentarios consultados en Room para poder leerlos sin conexión.
+
+**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+
+**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+

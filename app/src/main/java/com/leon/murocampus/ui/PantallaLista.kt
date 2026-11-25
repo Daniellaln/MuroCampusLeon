@@ -13,9 +13,11 @@ import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
 @Composable fun PantallaLista(vm:PostsViewModel,onAbrir:(Int)->Unit) {
     val estado by vm.visibles.collectAsStateWithLifecycle()
+    val offline by vm.sinConexion.collectAsStateWithLifecycle()
     val filtro by vm.usuarioFiltro.collectAsStateWithLifecycle()
     val consulta by vm.busqueda.collectAsStateWithLifecycle()
     Column(Modifier.fillMaxSize()) {
+        if(offline)Text("Sin conexión · leyendo la copia guardada",Modifier.padding(16.dp))
         OutlinedTextField(value=consulta,onValueChange=vm::buscar,label={ Text("Buscar por título") },singleLine=true,modifier=Modifier.fillMaxWidth().padding(horizontal=16.dp))
         if(consulta.isNotBlank())TextButton(onClick={ vm.buscar("") }) { Text("Limpiar búsqueda") }
         LazyRow(Modifier.fillMaxWidth(),contentPadding=PaddingValues(horizontal=16.dp),horizontalArrangement=Arrangement.spacedBy(8.dp)) {

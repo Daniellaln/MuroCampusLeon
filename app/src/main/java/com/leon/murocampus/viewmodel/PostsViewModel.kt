@@ -7,6 +7,7 @@ import com.leon.murocampus.model.*
 import kotlinx.coroutines.*
 import kotlinx.coroutines.flow.*
 class PostsViewModel(private val repo:PostRepository):ViewModel() {
+    val sinConexion=repo.sinConexion
     private val _lista=MutableStateFlow<UiState<List<Post>>>(UiState.Cargando)
     val lista=_lista.asStateFlow()
     private var cargaLista:Job?=null

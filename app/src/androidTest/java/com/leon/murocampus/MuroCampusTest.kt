@@ -16,6 +16,7 @@ class MuroCampusTest {
     @get:Rule val ui=createComposeRule()
     private val store=ViewModelStore()
     private class Repo:PostRepository {
+        override val sinConexion=kotlinx.coroutines.flow.MutableStateFlow(false)
         var fallo=false;var listas=0;var filtro:Int?=null;var enviados=0
         val posts=(1..100).map { Post((it-1)/10+1,it,"Publicación $it","Contenido de práctica $it") }
         override suspend fun listar():Result<List<Post>> { listas++;delay(40);return if(fallo)Result.failure(IOException()) else Result.success(posts) }

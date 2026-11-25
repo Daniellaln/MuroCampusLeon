@@ -2,7 +2,10 @@ package com.leon.murocampus.data
 import com.leon.murocampus.data.remote.PostApi
 import com.leon.murocampus.model.*
 import kotlinx.coroutines.CancellationException
+import kotlinx.coroutines.flow.asStateFlow
 interface PostRepository {
+    val sinConexion:kotlinx.coroutines.flow.StateFlow<Boolean>
+
     suspend fun listar():Result<List<Post>>
     suspend fun detalle(id:Int):Result<Post>
     suspend fun comentarios(id:Int):Result<List<Comentario>>
@@ -12,6 +15,7 @@ interface PostRepository {
     suspend fun crear(nuevo:NuevoPost):Result<Post>
 }
 class PostRepositoryRemote(private val api:PostApi):PostRepository {
+    override val sinConexion=kotlinx.coroutines.flow.MutableStateFlow(false).asStateFlow()
     override suspend fun listar()=llamar { api.listar() }
     override suspend fun detalle(id:Int)=llamar { api.detalle(id) }
     override suspend fun comentarios(id:Int)=llamar { api.comentarios(id) }
