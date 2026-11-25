@@ -19,7 +19,7 @@ import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
 
 @Composable
-fun PantallaDetalle(vm: PostsViewModel, id: Int, onVolver: () -> Unit = {}) {
+fun PantallaDetalle(vm: PostsViewModel, id: Int, onVolver: () -> Unit = {}, mostrarComentarios: Boolean = false) {
     val estado by vm.detalle.collectAsStateWithLifecycle()
     val eliminacion by vm.eliminacion.collectAsStateWithLifecycle()
     val offline by vm.detalleSinConexion.collectAsStateWithLifecycle()
@@ -29,7 +29,7 @@ fun PantallaDetalle(vm: PostsViewModel, id: Int, onVolver: () -> Unit = {}) {
     val contexto = LocalContext.current
     val c = MaterialTheme.colorScheme
     var errorCompartir by remember(id) { mutableStateOf(false) }
-    var comentariosAbiertos by rememberSaveable(id) { mutableStateOf(false) }
+    var comentariosAbiertos by rememberSaveable(id, mostrarComentarios) { mutableStateOf(mostrarComentarios) }
     when (val actual = estado) {
         UiState.Cargando -> Box(Modifier.padding(horizontal = 24.dp)) { Cargando("Cargando publicación…") }
         is UiState.Error -> Box(Modifier.padding(horizontal = 20.dp)) { ErrorConReintento(actual.mensaje) { vm.abrir(id) } }

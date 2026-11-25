@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-11-25T07:08:12.232245+00:00",
+  "generatedAt": "2026-11-25T18:12:23.686401+00:00",
   "title": "Design System: MuroCampus",
   "extensions": {
     "colorMeta": {
@@ -400,15 +400,15 @@
     "typographyMeta": {
       "headline-medium": {
         "displayName": "Cabecera Comunidad",
-        "purpose": "Cabecera contextual del muro; unidades sp nativas."
+        "purpose": "Rol del tema conservado; la cabecera compacta actual usa title-medium."
       },
       "headline-small": {
         "displayName": "Título de lectura",
         "purpose": "Título completo del detalle y encabezado de Personas."
       },
       "title-large": {
-        "displayName": "Título del feed",
-        "purpose": "Tres líneas como máximo en el feed; marca con variante ExtraBold."
+        "displayName": "Título de estado",
+        "purpose": "Encabezados de estados vacíos y compatibilidad de la primera fase."
       },
       "title-medium": {
         "displayName": "Título de grupo",
@@ -440,7 +440,23 @@
       },
       "label-small": {
         "displayName": "Nombre breve",
-        "purpose": "Nombre compacto en los accesos rápidos de personas."
+        "purpose": "Contador compacto y destinos de la navegación inferior."
+      },
+      "feed-author": {
+        "displayName": "Autor del feed",
+        "purpose": "Nombre de la API en 14sp/19sp, negrita, una línea."
+      },
+      "feed-user": {
+        "displayName": "Usuario del feed",
+        "purpose": "Username original en 12sp/17sp, una línea."
+      },
+      "feed-title": {
+        "displayName": "Título del feed",
+        "purpose": "Título original en 16sp/21sp, seminegrita, hasta dos líneas."
+      },
+      "feed-body": {
+        "displayName": "Cuerpo del feed",
+        "purpose": "Cuerpo original en 15sp/21sp, hasta cinco líneas."
       }
     },
     "shadows": [
@@ -453,6 +469,11 @@
         "name": "glass-icon",
         "value": "Android elevation: 3dp; ambient: primary alpha 0.07; spot: primary alpha 0.10",
         "purpose": "Separar iconos de vidrio de la superficie."
+      },
+      {
+        "name": "social-navigation",
+        "value": "Android elevation: 7dp; surface alpha 0.94; outlineVariant alpha 0.45; border 1dp",
+        "purpose": "Separar la navegación inferior del feed."
       }
     ],
     "motion": [
@@ -468,8 +489,8 @@
       },
       {
         "name": "feed-open",
-        "value": "spring(dampingRatio=0.88, stiffness=700); scale=0.988",
-        "purpose": "Presión de la fila; mantiene legible el título."
+        "value": "spring(dampingRatio=0.88, stiffness=700); scale=0.995",
+        "purpose": "Presión discreta de la región de lectura de la fila."
       },
       {
         "name": "save-press",
@@ -480,6 +501,11 @@
         "name": "navigation",
         "value": "fadeIn 180ms + slideInHorizontally 220ms (width/14); fadeOut 100ms",
         "purpose": "Navegación breve; EnterTransition.None y ExitTransition.None cuando la escala Android es cero."
+      },
+      {
+        "name": "social-navigation-press",
+        "value": "spring(dampingRatio=0.9, stiffness=750); scale=0.94",
+        "purpose": "Presión de los cuatro destinos inferiores; snap con escala Android cero."
       }
     ],
     "breakpoints": []
@@ -489,8 +515,8 @@
       "name": "Botón de vidrio principal",
       "kind": "button",
       "refersTo": "button-glass-primary",
-      "description": "Publicar o enviar. Traducción estática de Compose a CSS; las transparencias son reales, el resorte nativo no es una curva CSS.",
-      "html": "<button class=\"ds-glass\"><svg viewBox=\"0 0 24 24\" width=\"21\" height=\"21\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\"/></svg><span>Publicar</span></button>",
+      "description": "Envío del editor y confirmación. Traducción visual de Compose a CSS; el resorte nativo no es una curva CSS.",
+      "html": "<button class=\"ds-glass\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Publicar</span></button>",
       "css": ".ds-glass{font-family:Manrope,system-ui,sans-serif;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:52px;padding:14px 22px;border:1px solid #D7E3DA;border-radius:28px;color:#173E32;background:linear-gradient(135deg,rgba(255,255,255,.94),rgba(216,235,224,.64),rgba(216,235,224,.92));font-size:15px;font-weight:600;line-height:22px;cursor:pointer;transition:transform .14s,background .14s;} .ds-glass:hover{background:linear-gradient(135deg,#fff,rgba(216,235,224,.8),#D8EBE0);} .ds-glass:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-glass:active{transform:scale(.965,.935) rotate(.15deg);} .ds-glass:disabled{background:#E8F0EB;color:#53675D;cursor:default;} @media(prefers-reduced-motion:reduce){.ds-glass{transition:none;} .ds-glass:active{transform:none;}}"
     },
     {
@@ -518,12 +544,12 @@
       "css": ".ds-search-label{font-family:Manrope,system-ui,sans-serif;display:block;color:#53675D;font-size:12px;line-height:19px;} .ds-search-wrap{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid #7D9387;border-radius:16px;padding:12px 16px;color:#28634F;} .ds-search{font-family:Manrope,system-ui,sans-serif;min-width:0;flex:1;border:0;background:transparent;color:#203D34;font-size:16px;line-height:26px;} .ds-search-wrap:hover{border-color:#53675D;} .ds-search:focus-visible{outline:none;} .ds-search-wrap:focus-within{outline:2px solid #28634F;outline-offset:3px;}"
     },
     {
-      "name": "Filtro de persona seleccionado",
-      "kind": "chip",
-      "refersTo": "chip-person-selected",
-      "description": "Iniciales de autor de la API. El control de 48dp declara el nombre completo y su selección.",
-      "html": "<button class=\"ds-person\" aria-label=\"Filtrar por Leanne Graham\" aria-pressed=\"true\">LG</button>",
-      "css": ".ds-person{font-family:Manrope,system-ui,sans-serif;display:inline-grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:#28634F;color:#fff;font-size:13px;font-weight:600;line-height:20px;cursor:pointer;} .ds-person:hover{background:#173E32;} .ds-person:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-person:active{background:#244F3B;}"
+      "name": "Persona seleccionada en hoja",
+      "kind": "custom",
+      "refersTo": "list-person-selected",
+      "description": "Fila de la hoja Personas con nombre, username, iniciales y selección explícita.",
+      "html": "<button class=\"ds-person-row\" aria-pressed=\"true\"><span class=\"ds-person-avatar\" aria-hidden=\"true\">LG</span><span class=\"ds-person-identity\"><strong>Leanne Graham</strong><span>@Bret</span></span><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M5 12l4 4 10-10\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button>",
+      "css": ".ds-person-row{font-family:Manrope,system-ui,sans-serif;display:flex;align-items:center;gap:16px;width:100%;min-height:72px;padding:12px 24px;border:0;background:rgba(216,235,224,.35);color:#203D34;text-align:left;cursor:pointer}.ds-person-avatar{display:inline-grid;place-items:center;flex:none;width:40px;height:40px;border-radius:50%;background:#D8EBE0;color:#173E32;font-size:13px;font-weight:600}.ds-person-identity{display:flex;flex:1;flex-direction:column;gap:2px;font-size:14px;line-height:23px}.ds-person-identity span{color:#53675D;font-size:12px;line-height:19px}.ds-person-row>svg{flex:none;color:#28634F}.ds-person-row:hover{background:#D8EBE0}.ds-person-row:focus-visible{outline:2px solid #28634F;outline-offset:-3px}.ds-person-row:active{background:#EDF4EF}"
     },
     {
       "name": "Marcador guardado",
@@ -534,20 +560,20 @@
       "css": ".ds-saved{display:inline-grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;color:#713C55;background:#F5E5ED;cursor:pointer;transition:transform .14s;} .ds-saved:hover{background:#F8DCEA;} .ds-saved:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-saved:active{transform:scale(.87);} @media(prefers-reduced-motion:reduce){.ds-saved{transition:none;} .ds-saved:active{transform:none;}}"
     },
     {
-      "name": "Pestañas del muro",
+      "name": "Navegación social inferior",
       "kind": "nav",
-      "refersTo": "nav-tabs",
-      "description": "Navegación Material entre Muro y Guardadas. La muestra representa el estado Muro.",
-      "html": "<nav class=\"ds-tabs\" aria-label=\"Lecturas\"><button class=\"ds-tab ds-tab-selected\" aria-current=\"page\">Muro</button><button class=\"ds-tab\">Guardadas</button></nav>",
-      "css": ".ds-tabs{display:flex;background:#F4F8F6;border-bottom:1px solid #D7E3DA;} .ds-tab{font-family:Manrope,system-ui,sans-serif;flex:1;min-height:48px;border:0;border-bottom:3px solid transparent;padding:12px 16px;background:transparent;color:#53675D;font-size:15px;font-weight:600;line-height:22px;cursor:pointer;} .ds-tab-selected{border-bottom-color:#28634F;color:#28634F;} .ds-tab:hover{background:#EDF4EF;} .ds-tab:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-tab:active{background:#D8EBE0;}"
+      "refersTo": "nav-social",
+      "description": "Muro, Buscar, Publicar y Guardadas; selección y etiqueta unidas en cada destino. Publicar abre el editor.",
+      "html": "<nav class=\"ds-social-nav\" aria-label=\"Navegación principal\"><button class=\"ds-social-destination ds-social-selected\" aria-current=\"page\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M3 10.5 12 3l9 7.5M5 9v12h5v-7h4v7h5V9\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Muro</span></button><button class=\"ds-social-destination\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M15.3 15.3 20 20M17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Buscar</span></button><button class=\"ds-social-destination\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M12 5v14M5 12h14\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Publicar</span></button><button class=\"ds-social-destination\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M6 4h12v16l-6-4-6 4V4Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg><span>Guardadas</span></button></nav>",
+      "css": ".ds-social-nav{font-family:Manrope,system-ui,sans-serif;display:flex;gap:3px;padding:5px;border:1px solid rgba(215,227,218,.45);border-radius:30px;background:rgba(255,255,255,.94);box-shadow:0 5px 16px rgba(40,99,79,.12);max-width:760px}.ds-social-destination{font-family:inherit;display:flex;flex:1;min-width:0;min-height:56px;align-items:center;justify-content:center;flex-direction:column;gap:3px;padding:7px 2px;border:0;border-radius:25px;background:transparent;color:#53675D;font-size:11px;font-weight:600;line-height:17px;cursor:pointer;transition:transform .14s}.ds-social-selected{background:rgba(216,235,224,.7);color:#28634F}.ds-social-destination:nth-child(3){color:#28634F}.ds-social-destination:hover{background:#EDF4EF}.ds-social-destination:focus-visible{outline:2px solid #28634F;outline-offset:2px}.ds-social-destination:active{transform:scale(.94)}@media(prefers-reduced-motion:reduce){.ds-social-destination{transition:none}.ds-social-destination:active{transform:none}}"
     },
     {
-      "name": "Fila abierta de publicación",
+      "name": "Fila social de publicación",
       "kind": "custom",
       "refersTo": "feed-row",
-      "description": "Autor real y título original en tres líneas; sin extracto ni portada. La muestra usa una publicación de JSONPlaceholder.",
-      "html": "<article class=\"ds-feed\"><div class=\"ds-author\"><span class=\"ds-avatar\" aria-hidden=\"true\">LG</span><div><span class=\"ds-author-name\">Leanne Graham</span><span class=\"ds-author-handle\">@Bret</span></div></div><button class=\"ds-feed-open\"><span>sunt aut facere repellat provident occaecati excepturi optio reprehenderit</span><svg viewBox=\"0 0 24 24\" width=\"20\" height=\"20\" aria-hidden=\"true\"><path d=\"M5 12h14M13 6l6 6-6 6\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></article>",
-      "css": ".ds-feed{font-family:Manrope,system-ui,sans-serif;max-width:600px;color:#203D34;border-bottom:1px solid rgba(215,227,218,.65);} .ds-author{display:flex;align-items:center;gap:10px;padding-top:14px;} .ds-avatar{display:inline-grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#D8EBE0;color:#173E32;font-size:13px;font-weight:600;line-height:20px;} .ds-author-name{display:block;font-size:15px;font-weight:600;line-height:22px;} .ds-author-handle{display:block;color:#53675D;font-size:12px;line-height:19px;} .ds-feed-open{font-family:Manrope,system-ui,sans-serif;display:flex;align-items:center;gap:16px;width:100%;min-height:48px;padding:8px 0 22px;background:transparent;color:#203D34;border:0;text-align:left;font-size:21px;font-weight:700;line-height:28px;cursor:pointer;} .ds-feed-open span{flex:1;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden;} .ds-feed-open svg{flex:none;color:#28634F;} .ds-feed-open:hover{color:#28634F;} .ds-feed-open:focus-visible{outline:2px solid #28634F;outline-offset:3px;} .ds-feed-open:active{opacity:.85;}"
+      "description": "Avatar lateral de 36dp; autor y username, título de dos líneas y cuerpo de cinco; acciones independientes de 48dp. Datos originales de JSONPlaceholder.",
+      "html": "<article class=\"ds-feed\"><span class=\"ds-avatar\" aria-hidden=\"true\">LG</span><div class=\"ds-feed-content\"><button class=\"ds-feed-open\" aria-label=\"Abrir publicación\"><strong class=\"ds-feed-author\">Leanne Graham</strong><span class=\"ds-feed-user\">@Bret</span><strong class=\"ds-feed-title\">sunt aut facere repellat provident occaecati excepturi optio reprehenderit</strong><span class=\"ds-feed-body\">quia et suscipit\nsuscipit recusandae consequuntur expedita et cum\nreprehenderit molestiae ut ut quas totam\nnostrum rerum est autem sunt rem eveniet architecto</span></button><div class=\"ds-feed-actions\"><button class=\"ds-feed-action\" aria-label=\"Ver comentarios\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M21 11.5a8.5 8.5 0 0 1-8.5 8.5H4l1.7-4.1A8.5 8.5 0 1 1 21 11.5Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button><button class=\"ds-feed-action\" aria-label=\"Guardar para leer\" aria-pressed=\"false\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M6 4h12v16l-6-4-6 4V4Z\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button><button class=\"ds-feed-action\" aria-label=\"Compartir publicación\"><svg viewBox=\"0 0 24 24\" width=\"22\" height=\"22\" aria-hidden=\"true\"><path d=\"M12 16V3M7 8l5-5 5 5M5 13v7h14v-7\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.7\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/></svg></button></div></div></article>",
+      "css": ".ds-feed{font-family:Manrope,system-ui,sans-serif;display:flex;align-items:flex-start;gap:10px;max-width:600px;padding-top:12px;border-bottom:1px solid rgba(215,227,218,.55);color:#203D34}.ds-avatar{display:inline-grid;place-items:center;flex:none;width:36px;height:36px;margin-top:2px;border-radius:50%;background:#D8EBE0;color:#173E32;font-size:13px;font-weight:600;line-height:20px}.ds-feed-content{flex:1;min-width:0}.ds-feed-open{font-family:inherit;display:block;width:100%;min-height:48px;padding:0;border:0;background:transparent;color:#203D34;text-align:left;cursor:pointer}.ds-feed-author{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:14px;font-weight:700;line-height:19px}.ds-feed-user{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#53675D;font-size:12px;line-height:17px}.ds-feed-title,.ds-feed-body{display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden;white-space:pre-line}.ds-feed-title{-webkit-line-clamp:2;margin-top:6px;font-size:16px;font-weight:600;line-height:21px}.ds-feed-body{-webkit-line-clamp:5;margin-top:4px;font-size:15px;line-height:21px}.ds-feed-actions{display:flex;gap:12px;padding-top:2px}.ds-feed-action{display:inline-grid;place-items:center;width:48px;height:48px;border:0;border-radius:50%;background:transparent;color:#53675D;cursor:pointer}.ds-feed-open:hover{color:#28634F}.ds-feed-action:hover{background:#EDF4EF;color:#28634F}.ds-feed-open:focus-visible,.ds-feed-action:focus-visible{outline:2px solid #28634F;outline-offset:2px}.ds-feed-open:active{opacity:.85}.ds-feed-action:active{background:#D8EBE0}"
     },
     {
       "name": "Aviso de copia disponible",
@@ -560,10 +586,10 @@
   ],
   "narrative": {
     "northStar": "Atrio de campus con vidrio",
-    "overview": "Un espacio de lectura universitario luminoso y sereno. El blanco fresco y la tinta verde dejan respirar los títulos; el verde agua y el rosa aparecen en selecciones, iniciales y controles. Manrope mantiene una voz cercana sin perder claridad. La identidad confirmada pide cuidado femenino sutil, sin saturación ni fondo beige.\n\nEl contenido remoto conserva sus autores y sus textos originales. Las imágenes generadas aportan ambiente: el atrio no representa una ubicación verificada y las conversaciones de vidrio no son contenido de la API. La primera sustitución cromática y la posterior cuadrícula repetitiva fueron rechazadas; el muro vigente se expresa mediante lectura abierta y personas reconocibles. La composición específica del muro vive en su brief, no impone una plantilla a cada pantalla futura.",
+    "overview": "Un espacio de lectura universitario luminoso y sereno. El blanco fresco y la tinta verde dejan respirar el contenido; el verde agua y el rosa aparecen en selecciones, iniciales y controles. Manrope mantiene una voz cercana sin perder claridad. La identidad confirmada pide cuidado femenino sutil, sin saturación ni fondo beige.\n\nEl contenido remoto conserva sus autores y sus textos originales. Las referencias de X y Threads orientan la organización de conversación: identidad compacta, lectura en una columna y acciones visibles. La identidad propia conserva su paleta y material. Las imágenes generadas aportan ambiente en estados y editor; no son contenido de la API. El atrio se conserva como recurso histórico de la dirección, sin una cabecera fotográfica en el muro actual. La composición específica del muro vive en su brief.",
     "keyCharacteristics": [
       "Blanco fresco, tinta verde profunda y rosa ligero en pequeñas superficies de estado.",
-      "Tipografía Manrope, títulos claros y texto completo en la lectura.",
+      "Tipografía Manrope, identidad compacta y título y cuerpo originales en el feed.",
       "Controles de vidrio inspirado con respuesta breve al tacto.",
       "Autoría real, alcance de búsqueda explícito y guardadas identificadas como copias del dispositivo.",
       "Tema oscuro y respeto por las preferencias de tamaño de texto y movimiento de Android."
@@ -576,7 +602,7 @@
       },
       {
         "name": "The Reading First Rule",
-        "body": "Limitar el título del feed a tres líneas; al abrirlo mostrar título y cuerpo completos, sin exigir una expansión adicional.",
+        "body": "Limitar el título del feed a dos líneas y el cuerpo a cinco; al abrirlo mostrar ambos completos, sin exigir una expansión adicional.",
         "section": "typography"
       },
       {
@@ -588,15 +614,15 @@
     "dos": [
       "**Do** conservar Manrope, blanco fresco, verde suave y rosa ligero con sus parejas de tinta de los dos temas.",
       "**Do** mantener superficies táctiles de al menos 48 dp y comprobar la interfaz con fuente a 1.3, tema oscuro y escala de animación a cero.",
-      "**Do** mostrar autoría de la API, iniciales coherentes y los títulos originales; identificar el fallback Usuario cuando falte el nombre.",
+      "**Do** mostrar autoría de la API, iniciales coherentes, título y cuerpo originales; identificar el fallback Usuario cuando falte el nombre.",
       "**Do** mantener el cuerpo completo seleccionable y los estados de comentarios independientes de la lectura.",
       "**Do** describir el alcance local de búsqueda, la persistencia de Guardadas en el dispositivo y el carácter simulado de las escrituras remotas.",
       "**Do** conservar la procedencia de cada imagen que se distribuya y tratar campus e ilustraciones como ambientación generada."
     ],
     "donts": [
       "**Don't** volver a la sustitución de paleta de fase 1 ni a la cuadrícula repetitiva rechazada para el muro actual.",
-      "**Don't** añadir extractos, portadas decorativas por post o un CTA repetido a cada fila del feed vigente.",
-      "**Don't** fabricar noticias, fotos de autores, instituciones o datos que la API no suministra.",
+      "**Don't** reintroducir la cabecera fotográfica, las cuatro personas de acceso rápido o portadas decorativas por post en el feed vigente.",
+      "**Don't** fabricar noticias, fotos de autores, fechas, reacciones, instituciones o datos que la API no suministra.",
       "**Don't** convertir el vidrio inspirado en una promesa de refracción, transparencia óptica real o tecnología de Apple.",
       "**Don't** ocultar el cuerpo del detalle tras Leer más ni bloquearlo cuando fallen los comentarios.",
       "**Don't** teñir el fondo de beige, saturar el rosa o aplicar transparencia al texto para simular vidrio."

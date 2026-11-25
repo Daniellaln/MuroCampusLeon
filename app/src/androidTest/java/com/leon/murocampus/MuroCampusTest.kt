@@ -120,7 +120,7 @@ class MuroCampusTest {
         val (_,vm)=mostrar(guardados=gvm);esperar(vm)
         ui.onNodeWithTag("lista_publicaciones").performScrollToNode(hasText("Publicación 1"))
         ui.onAllNodesWithContentDescription("Guardar para leer").onFirst().performClick();ui.waitUntil { gvm.guardados.value.size==1 }
-        ui.onNodeWithTag("lista_publicaciones").performScrollToNode(hasText("Guardadas"));ui.onNodeWithText("Guardadas").performClick()
+        ui.onNodeWithContentDescription("Guardadas").performClick()
         ui.onNodeWithTag("lista_publicaciones").performScrollToNode(hasText("Publicación 1"));ui.onNodeWithText("Publicación 1").performClick()
         ui.waitUntil { vm.detalle.value is UiState.Exito };assertEquals("Contenido de práctica 1",(vm.detalle.value as UiState.Exito).datos.post.body)
         ui.onNodeWithContentDescription("Quitar de guardadas").performClick();ui.waitUntil { gvm.guardados.value.isEmpty() }
@@ -143,5 +143,26 @@ class MuroCampusTest {
         assertEquals(post.title,intent.getStringExtra(Intent.EXTRA_SUBJECT))
         val cuerpo=intent.getStringExtra(Intent.EXTRA_TEXT)!!
         assertTrue(cuerpo.contains(post.body));assertTrue(cuerpo.contains("https://jsonplaceholder.typicode.com/posts/7"))
+    }
+    @Test fun elMuroMuestraElCuerpoYLaAccionAbreComentarios() {
+        val (_,vm)=mostrar();esperar(vm)
+        ui.onNodeWithTag("lista_publicaciones").performScrollToNode(hasText("Contenido de práctica 1"))
+        ui.onNodeWithText("Contenido de práctica 1").assertIsDisplayed()
+        ui.onAllNodesWithContentDescription("Ver comentarios").onFirst().performClick()
+        ui.waitUntil(5000) { vm.detalle.value is UiState.Exito && !vm.cargandoComentarios.value }
+        assertEquals(5,(vm.detalle.value as UiState.Exito).datos.comentarios.size)
+        ui.onNodeWithText("Comentario 1").assertIsDisplayed()
+    }
+    @Test fun buscarDesdeLaBarraYVolverAlMuroConservaLaDescarga() {
+        val (repo,vm)=mostrar();esperar(vm)
+        ui.onNodeWithContentDescription("Buscar publicaciones").performClick()
+        ui.onNodeWithText("Buscar por título").performTextInput("Publicación 12")
+        ui.waitUntil { (vm.visibles.value as? UiState.Exito)?.datos?.map { it.id }==listOf(12) }
+        ui.onNodeWithTag("post_12").assertIsDisplayed()
+        ui.onNodeWithContentDescription("Cerrar búsqueda").performClick()
+        ui.waitUntil { vm.busqueda.value.isBlank() && (vm.visibles.value as? UiState.Exito)?.datos?.size==20 }
+        ui.onNodeWithContentDescription("Muro").assertIsSelected()
+        ui.onNodeWithTag("post_1").assertIsDisplayed()
+        assertEquals(1,repo.listas)
     }
 }

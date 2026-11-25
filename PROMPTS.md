@@ -148,3 +148,23 @@ Compórtate como un experto en pruebas y documentación Android. Ayúdame a veri
 
 **Qué comprobar:** Ejecuta las pruebas documentadas y comprueba que las capturas corresponden al código de esta rama.
 
+
+## 10. Publicaciones y navegación social
+
+```text
+Compórtate como un experto en diseño de aplicaciones Android y experiencia de uso para redes sociales. Ayúdame a reorganizar MuroCampus siguiendo la composición de Threads y X y las capturas de docs/capturas_social, manteniendo el blanco fresco, verde suave, rosa ligero, Manrope y los controles de vidrio de DESIGN.md. Trabaja sobre el cierre anterior de mejora-ia, sin tocar main ni las funciones REST existentes.
+
+Las publicaciones deben ser lo primero que se vea. Quita del inicio el banner de campus, las pestañas superiores y la fila de cuatro personas. En MuroCampusApp usa una cabecera de 56 dp con marca pequeña, filtro de persona bajo demanda y actualizar/información. PantallaLista muestra solo un encabezado de alcance compacto (todas las personas o autor seleccionado y número descargado/resultados) y el feed. No pongas títulos enormes ni portadas decorativas en los posts.
+
+En Componentes.kt reorganiza FilaPublicacion: avatar de iniciales de 36 dp a la izquierda; columna derecha con nombre a 14 sp y usuario a 12 sp; título a 16 sp, semibold y máximo dos líneas; cuerpo a 15 sp y máximo cinco líneas. Usa separación fina entre publicaciones. Autor, título y cuerpo permiten abrir el detalle completo. Debajo alinea tres acciones con áreas de 48 dp: Ver comentarios, Guardar para leer y Compartir publicación. El callback de comentarios abre PantallaDetalle con mostrarComentarios=true; compartir usa el helper nativo existente y maneja ActivityNotFoundException sin cerrar la app. Conserva el snapshot completo persistente de Guardadas. No inventes likes, seguidores, fechas, vistas, recuentos, fotos ni videos que JSONPlaceholder posts no entrega.
+
+Crea NavegacionSocial.kt con una barra inferior de vidrio claro, selección visible y cuatro acciones reales: Muro, Buscar, Publicar y Guardadas. Buscar abre el campo por título dentro del alcance actual, con limpiar y cerrar; Muro cierra la búsqueda sin hacer otra descarga. Publicar abre el editor. Guardadas recupera lecturas del dispositivo. Conserva posiciones de scroll independientes al cambiar entre Muro y Guardadas. La barra se oculta con teclado y no tapa el último post. Usa los SVG de diseno/iconos y VectorDrawable de res/drawable; ic_inicio es la nueva casa de trazo 1.7 y vista 24x24. El vidrio y sus respuestas se dibujan en Compose, no en PNG.
+
+Mantén todos los recorridos existentes: filtro, detalle, comentarios, crear, editar, eliminar con confirmación, caché sin conexión, paginación, borrador protegido y respuestas simuladas honestas. Comprueba que el cuerpo aparece desde el feed, los comentarios se abren directamente desde su acción y buscar/cerrar no vuelve a descargar. Prueba también oscuro, fuente 130%, horizontal, teclado y escala de animaciones cero. Actualiza las capturas reales, guía de rutas y líneas, README, PRODUCT, DESIGN y su sidecar. No presentes capturas de la versión anterior como si fueran de esta organización.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 10 | Pendiente de ejecutar por la estudiante | Implementación y revisión hechas con Codex; se retiraron el banner y los títulos grandes, se incorporó el cuerpo y acciones reales por post | Dar prioridad a las publicaciones y reproducir la organización pedida sin inventar funciones del servicio |
+
+**Qué comprobar:** el primer post aparece bajo la cabecera; su cuerpo es visible, los tres botones funcionan y la barra inferior conserva el contexto de lectura. Consulta docs/GALERIA_SOCIAL.md y docs/VERIFICACION_SOCIAL.md.

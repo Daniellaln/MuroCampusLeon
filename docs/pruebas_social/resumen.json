@@ -1,0 +1,92 @@
+{
+  "scope": "Extensión social, décimo avance de fase 2; Windows y emulador Pixel 8 Pro Android API 37",
+  "unitarias": [
+    {
+      "archivo": "TEST-com.leon.murocampus.AcceptJsonTest.xml",
+      "clase": "com.leon.murocampus.AcceptJsonTest",
+      "tests": 1,
+      "timestamp": "2026-11-25T18:03:55.774Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.AutoresViewModelTest.xml",
+      "clase": "com.leon.murocampus.AutoresViewModelTest",
+      "tests": 6,
+      "timestamp": "2026-11-25T18:03:55.982Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.FaseDosHttpTest.xml",
+      "clase": "com.leon.murocampus.FaseDosHttpTest",
+      "tests": 3,
+      "timestamp": "2026-11-25T18:03:56.162Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.FaseDosViewModelTest.xml",
+      "clase": "com.leon.murocampus.FaseDosViewModelTest",
+      "tests": 8,
+      "timestamp": "2026-11-25T18:03:56.238Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.GuardadosViewModelTest.xml",
+      "clase": "com.leon.murocampus.GuardadosViewModelTest",
+      "tests": 8,
+      "timestamp": "2026-11-25T18:03:56.280Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.ModelosTest.xml",
+      "clase": "com.leon.murocampus.ModelosTest",
+      "tests": 4,
+      "timestamp": "2026-11-25T18:03:56.307Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.PostRepositoryTest.xml",
+      "clase": "com.leon.murocampus.PostRepositoryTest",
+      "tests": 7,
+      "timestamp": "2026-11-25T18:03:56.321Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.PostsViewModelTest.xml",
+      "clase": "com.leon.murocampus.PostsViewModelTest",
+      "tests": 7,
+      "timestamp": "2026-11-25T18:03:56.361Z"
+    },
+    {
+      "archivo": "TEST-com.leon.murocampus.UsuarioRepositoryTest.xml",
+      "clase": "com.leon.murocampus.UsuarioRepositoryTest",
+      "tests": 3,
+      "timestamp": "2026-11-25T18:03:56.381Z"
+    }
+  ],
+  "android": {
+    "archivo": "instrumentadas.xml",
+    "tests": 30,
+    "timestamp": "2026-11-25T18:09:00",
+    "clases": {
+      "com.leon.murocampus.GuardadosPreferencesTest": 3,
+      "com.leon.murocampus.MuroCampusTest": 16,
+      "com.leon.murocampus.RoomCacheTest": 10,
+      "com.leon.murocampus.ServicioRealTest": 1
+    }
+  },
+  "lint": {
+    "archivo": "lint.xml",
+    "errores": 0,
+    "advertencias": 19
+  },
+  "registros": [
+    "social_build.log",
+    "social_android.log"
+  ],
+  "total": 77,
+  "fallos": 0,
+  "errores": 0,
+  "omitidas": 0,
+  "recorrido": {
+    "archivo": "social_recorrido.json",
+    "capturas": 19,
+    "contactos": 4,
+    "redRestaurada": true,
+    "fuenteFinal": 1,
+    "rotacionFinal": 0,
+    "animacionesFinal": 1
+  }
+}

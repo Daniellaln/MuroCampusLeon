@@ -1,6 +1,6 @@
 # Dónde está cada cambio · fase 2
 
-Abre la versión final de mejora-ia en Android Studio y usa la vista Project. Los enlaces señalan líneas comprobadas de esta versión; Ctrl+L permite saltar a una línea. main tiene su propia [guía de fase 1](GUIA_CODIGO.md): no conviene atribuirle las líneas de la fase 2.
+Abre la versión vigente de mejora-ia, incluida la extensión social, en Android Studio y usa la vista Project. Los enlaces señalan líneas comprobadas de esta versión; Ctrl+L permite saltar a una línea. main tiene su propia [guía de fase 1](GUIA_CODIGO.md): no conviene atribuirle las líneas de la fase 2.
 
 ## Mapa para encontrar conceptos
 
@@ -38,13 +38,18 @@ Cada fila agrupa sinónimos que pueden aparecer durante la exposición.
 | Guardadas / alternar sin duplicados / commit antes de publicar | [GuardadosRepository.kt:66](../app/src/main/java/com/leon/murocampus/data/GuardadosRepository.kt#L66) |
 | Guardadas / ViewModel / estado y errores | [GuardadosViewModel.kt:13](../app/src/main/java/com/leon/murocampus/viewmodel/GuardadosViewModel.kt#L13) |
 | Composición de dependencias / una base / MainActivity | [MainActivity.kt:19](../app/src/main/java/com/leon/murocampus/MainActivity.kt#L19) |
-| Muro / feed / pestañas / conteos / personas | [PantallaLista.kt:35](../app/src/main/java/com/leon/murocampus/ui/PantallaLista.kt#L35) |
-| Campus / fotografía ambiental / cabecera 116dp | [PantallaLista.kt:241](../app/src/main/java/com/leon/murocampus/ui/PantallaLista.kt#L241) |
-| Fila abierta / título tres líneas / autor sin portada | [Componentes.kt:56](../app/src/main/java/com/leon/murocampus/ui/Componentes.kt#L56) |
+| Muro / feed / conteos / alcance compacto | [PantallaLista.kt:29](../app/src/main/java/com/leon/murocampus/ui/PantallaLista.kt#L29) |
+| Filtro / hoja Personas / selección / diez autores | [PantallaLista.kt:73](../app/src/main/java/com/leon/murocampus/ui/PantallaLista.kt#L73) |
+| Cabecera compacta / marca / filtro / actualizar | [MuroCampusApp.kt:82](../app/src/main/java/com/leon/murocampus/ui/MuroCampusApp.kt#L82) |
+| Fila social / avatar lateral / título 2 líneas / cuerpo 5 líneas | [Componentes.kt:60](../app/src/main/java/com/leon/murocampus/ui/Componentes.kt#L60) |
+| Comentarios / guardar / compartir desde la fila | [Componentes.kt:99](../app/src/main/java/com/leon/murocampus/ui/Componentes.kt#L99) |
+| Navegación inferior / Muro Buscar Publicar Guardadas / semántica | [NavegacionSocial.kt:20](../app/src/main/java/com/leon/murocampus/ui/NavegacionSocial.kt#L20) |
+| Buscar / teclado / ocultar navegación inferior | [MuroCampusApp.kt:102](../app/src/main/java/com/leon/murocampus/ui/MuroCampusApp.kt#L102) |
+| Entrada desde comentarios / detalle desplegado | [MuroCampusApp.kt:122](../app/src/main/java/com/leon/murocampus/ui/MuroCampusApp.kt#L122) |
 | Iniciales / autor real / marcador guardado | [Comunidad.kt:35](../app/src/main/java/com/leon/murocampus/ui/Comunidad.kt#L35) |
 | Texto completo / selección / comentarios progresivos | [PantallaDetalle.kt:22](../app/src/main/java/com/leon/murocampus/ui/PantallaDetalle.kt#L22) |
 | Editor / validación / error compacto / salida | [FormularioPost.kt:22](../app/src/main/java/com/leon/murocampus/ui/FormularioPost.kt#L22) |
-| Borrador / Atrás / confirmar descarte | [MuroCampusApp.kt:59](../app/src/main/java/com/leon/murocampus/ui/MuroCampusApp.kt#L59) |
+| Borrador / Atrás / confirmar descarte | [MuroCampusApp.kt:67](../app/src/main/java/com/leon/murocampus/ui/MuroCampusApp.kt#L67) |
 | Compartir / función propia / menú de Android | [CompartirPublicacion.kt:5](../app/src/main/java/com/leon/murocampus/ui/CompartirPublicacion.kt#L5) |
 | Vidrio / capas / presión / controles | [GlassControls.kt:41](../app/src/main/java/com/leon/murocampus/ui/GlassControls.kt#L41) |
 | Remove animations / escala cero / Android | [GlassControls.kt:27](../app/src/main/java/com/leon/murocampus/ui/GlassControls.kt#L27) |
@@ -56,8 +61,8 @@ Cada fila agrupa sinónimos que pueden aparecer durante la exposición.
 1. En `PostApi`, mostrar las rutas y distinguir `@Query`, `@Path` y `@Body`. En `RetrofitClient`, señalar URL base, conversión JSON e interceptor Accept. Las escrituras de JSONPlaceholder son simuladas aunque la respuesta HTTP sea correcta.
 2. Seguir la consulta desde `PostsViewModel` hasta el contrato Repository. La implementación remota llama a Retrofit; la implementación con caché decide cuándo usar Room. Compose no llama al servicio.
 3. Mostrar las seis mejoras: búsqueda local, PATCH, DELETE, Accept JSON, Room y páginas de veinte. Buscar no hace una llamada por cada letra; cambiar de persona sí consulta su conjunto. El conteo distingue resultados de descargas.
-4. Mostrar la mejora de identidad: un `GET users`, mapa por `userId`, nombres e iniciales. Un fallo de autores conserva los nombres conocidos y no impide cargar publicaciones.
-5. Abrir un detalle: el post se publica antes de terminar comentarios. La sección puede fallar o reintentar por separado. El asunto `Comentario.name` se presenta como asunto; la identidad disponible es el correo.
+4. Mostrar la organización social: avatar lateral, nombre, username, título y cuerpo originales. Sus medidas están en `FilaPublicacion`; la barra inferior está en `NavegacionSocial` y el filtro de la cabecera abre la hoja Personas. La identidad llega de `GET users` y un mapa por `userId`; un fallo de autores conserva los nombres conocidos y no impide cargar publicaciones.
+5. Pulsar comentarios desde una fila: `MuroCampusApp` pasa `mostrarComentarios=true` al detalle. Abrir la lectura normal conserva comentarios a demanda. El post se publica antes de terminar comentarios. La sección puede fallar o reintentar por separado. El asunto `Comentario.name` se presenta como asunto; la identidad disponible es el correo.
 6. Distinguir los dos almacenamientos: Room conserva respuestas leídas del servicio; Guardadas guarda snapshots elegidos por la persona como JSON local. Guardadas funciona de verdad en el dispositivo y no declara sincronización remota.
 7. En el editor, explicar Autor de ejemplo, enviar y mostrar el título retornado junto al aviso de simulación y Volver al muro. Salir con cambios pide decidir si se conserva el borrador. Editar/eliminar muestran recibo sin fingir un cambio persistente del servidor.
 
@@ -71,10 +76,10 @@ Room es la biblioteca; `MuroDatabase` construye la base. Entity define una tabla
 
 ## Funciones propias y pruebas
 
-Compartir existe desde el avance 11 de fase 1 y sigue enviando título, texto y enlace a la hoja nativa, sin seleccionar un destinatario automáticamente. Guardadas es la función propia añadida en fase 2: marcador, pestaña, lectura sin red y persistencia local completa.
+Compartir existe desde el avance 11 de fase 1 y sigue enviando título, texto y enlace a la hoja nativa, sin seleccionar un destinatario automáticamente. Guardadas es la función propia añadida en fase 2: marcador, vista Guardadas, lectura sin red y persistencia local completa.
 
-Los tests de HTTP usan MockWebServer; los de ViewModel usan repositorios controlados. Room y preferencias tienen pruebas instrumentadas de cerrar/reabrir y persistencia. `ServicioRealTest` consulta JSONPlaceholder por HTTPS y demuestra los límites de escritura de ese servicio. Los resultados ejecutados y su alcance están en [Verificación](VERIFICACION_FASE2.md).
+Los tests de HTTP usan MockWebServer; los de ViewModel usan repositorios controlados. Room y preferencias tienen pruebas instrumentadas de cerrar/reabrir y persistencia. `ServicioRealTest` consulta JSONPlaceholder por HTTPS y demuestra los límites de escritura de ese servicio. Los resultados actuales y su alcance están en [Verificación social](VERIFICACION_SOCIAL.md), con 77 pruebas aprobadas; la [verificación histórica de los nueve avances](VERIFICACION_FASE2.md) conserva sus 75 casos. La [galería actual](GALERIA_SOCIAL.md) reúne los 19 estados de esta organización.
 
-Para señalar un avance exacto, abre Git → Log y revisa los archivos de ese commit. Las líneas anteriores describen el cierre final, no el estado de cada paso histórico. La serie de fase 2 se organiza en nueve avances adicionales a los doce de main; no equivale por sí misma a una publicación remota confirmada.
+Para señalar un avance exacto, abre Git → Log y revisa los archivos de ese commit. Las líneas anteriores describen el cierre final, no el estado de cada paso histórico. Los nueve primeros avances de fase 2 están publicados después de los doce de main y mantienen su evidencia histórica. La extensión social corresponde al décimo avance; su galería y sus comprobaciones deben identificarse por separado.
 
-La búsqueda mantiene el campo compuesto y el foco mientras se escribe; no fuerza un desplazamiento por cada pulsación. Las filas tienen claves estables. Cambiar de persona o cerrar la búsqueda sí restablece el inicio por intención de la persona.
+La búsqueda mantiene el campo compuesto y el foco mientras se escribe; no fuerza un desplazamiento por cada pulsación. Las filas tienen claves estables. Cambiar de persona o abrir la búsqueda restablece el inicio por intención de la persona; el cierre limpia la consulta, el foco y el teclado.

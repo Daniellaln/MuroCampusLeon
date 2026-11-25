@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<testsuites tests="30" failures="0" errors="0" skipped="0" time="74.867" timestamp="2026-11-25T18:09:00" hostname="localhost">
+  <testsuite name="com.leon.murocampus.GuardadosPreferencesTest" tests="3" failures="0" errors="0" skipped="0" time="0.287" timestamp="2026-11-25T18:09:00" hostname="localhost">
+    <properties>
+      <property name="device" value="Pixel_8_Pro_2(AVD) - 17" />
+      <property name="flavor" value="" />
+      <property name="project" value=":app" />
+    </properties>
+    <testcase name="alternarAntesDeCargarLeeLaListaPersistidaYNoLaReemplaza" classname="com.leon.murocampus.GuardadosPreferencesTest" time="0.279" />
+    <testcase name="datosIlegiblesDanErrorSinBorrarseSilenciosamente" classname="com.leon.murocampus.GuardadosPreferencesTest" time="0.005" />
+    <testcase name="nuevaInstanciaRecuperaTodoElPostYLaEliminacionPersiste" classname="com.leon.murocampus.GuardadosPreferencesTest" time="0.003" />
+  </testsuite>
+  <testsuite name="com.leon.murocampus.MuroCampusTest" tests="16" failures="0" errors="0" skipped="0" time="67.025" timestamp="2026-11-25T18:09:00" hostname="localhost">
+    <properties>
+      <property name="device" value="Pixel_8_Pro_2(AVD) - 17" />
+      <property name="flavor" value="" />
+      <property name="project" value=":app" />
+    </properties>
+    <testcase name="volverDelDetalleConservaLaPosicionDeLectura" classname="com.leon.murocampus.MuroCampusTest" time="10.58" />
+    <testcase name="eliminarPideConfirmacionYCancelarNoEnviaLaAccion" classname="com.leon.murocampus.MuroCampusTest" time="5.933" />
+    <testcase name="compartirIncluyeTituloTextoYEnlaceSinEnviarNada" classname="com.leon.murocampus.MuroCampusTest" time="3.812" />
+    <testcase name="publicarTieneSalidaClaraAlMuro" classname="com.leon.murocampus.MuroCampusTest" time="5.283" />
+    <testcase name="listaCargaLaPrimeraPagina" classname="com.leon.murocampus.MuroCampusTest" time="1.878" />
+    <testcase name="formularioDeshabilitaVaciosYLimpiaTrasExito" classname="com.leon.murocampus.MuroCampusTest" time="3.926" />
+    <testcase name="detalleYRegresoMantienenLaLista" classname="com.leon.murocampus.MuroCampusTest" time="2.403" />
+    <testcase name="elMuroMuestraElCuerpoYLaAccionAbreComentarios" classname="com.leon.murocampus.MuroCampusTest" time="2.302" />
+    <testcase name="errorDePublicacionConservaElTexto" classname="com.leon.murocampus.MuroCampusTest" time="4.192" />
+    <testcase name="editarMuestraLaRespuestaSinSustituirElOriginalDelServidor" classname="com.leon.murocampus.MuroCampusTest" time="4.742" />
+    <testcase name="borradorPideConfirmacionYPermiteSeguirEscribiendo" classname="com.leon.murocampus.MuroCampusTest" time="5.642" />
+    <testcase name="buscarNoLlamaDeNuevoALaRedYSePuedeLimpiar" classname="com.leon.murocampus.MuroCampusTest" time="3.719" />
+    <testcase name="filtroUsuarioDosYTODOSUsanRepository" classname="com.leon.murocampus.MuroCampusTest" time="4.898" />
+    <testcase name="buscarDesdeLaBarraYVolverAlMuroConservaLaDescarga" classname="com.leon.murocampus.MuroCampusTest" time="3.406" />
+    <testcase name="guardarPermiteAbrirSnapshotLocalYQuitarSinRed" classname="com.leon.murocampus.MuroCampusTest" time="2.267" />
+    <testcase name="errorListaSeRecuperaAlReintentar" classname="com.leon.murocampus.MuroCampusTest" time="2.042" />
+  </testsuite>
+  <testsuite name="com.leon.murocampus.RoomCacheTest" tests="10" failures="0" errors="0" skipped="0" time="0.784" timestamp="2026-11-25T18:09:00" hostname="localhost">
+    <properties>
+      <property name="device" value="Pixel_8_Pro_2(AVD) - 17" />
+      <property name="flavor" value="" />
+      <property name="project" value=":app" />
+    </properties>
+    <testcase name="noInventaPaginaIntermediaAunqueExistanOtrosIdsGuardados" classname="com.leon.murocampus.RoomCacheTest" time="0.468" />
+    <testcase name="cacheVaciaNoOcultaFalloNiUnaRespuestaInvalida" classname="com.leon.murocampus.RoomCacheTest" time="0.054" />
+    <testcase name="autoresPersistenAlCerrarYReabrirYNoOcultanRespuestasInvalidas" classname="com.leon.murocampus.RoomCacheTest" time="0.029" />
+    <testcase name="falloSqlAlGuardarAutoresConservaNombresDeRedYAdvierteLaCopiaAusente" classname="com.leon.murocampus.RoomCacheTest" time="0.03" />
+    <testcase name="roomPersistePaginasDetalleYComentariosAlCerrarYReabrir" classname="com.leon.murocampus.RoomCacheTest" time="0.03" />
+    <testcase name="usuarioSueltoNoInventaUnListadoCompletoSinRed" classname="com.leon.murocampus.RoomCacheTest" time="0.002" />
+    <testcase name="origenDeListaDetalleYComentariosNoSePisanEntreConsultas" classname="com.leon.murocampus.RoomCacheTest" time="0.032" />
+    <testcase name="falloSqlAlGuardarNoOcultaDatosRemotosYElAvisoSeLimpiaAlRecuperarCache" classname="com.leon.murocampus.RoomCacheTest" time="0.055" />
+    <testcase name="migracionUnoADosConservaPostsComentariosYPaginasYPermiteAutores" classname="com.leon.murocampus.RoomCacheTest" time="0.081" />
+    <testcase name="comentariosVaciosConsultadosSeConservanSinResucitarLosAnteriores" classname="com.leon.murocampus.RoomCacheTest" time="0.003" />
+  </testsuite>
+  <testsuite name="com.leon.murocampus.ServicioRealTest" tests="1" failures="0" errors="0" skipped="0" time="5.174" timestamp="2026-11-25T18:09:00" hostname="localhost">
+    <properties>
+      <property name="device" value="Pixel_8_Pro_2(AVD) - 17" />
+      <property name="flavor" value="" />
+      <property name="project" value=":app" />
+    </properties>
+    <testcase name="endpointsRealesDeJsonPlaceholder" classname="com.leon.murocampus.ServicioRealTest" time="5.174" />
+  </testsuite>
+</testsuites>

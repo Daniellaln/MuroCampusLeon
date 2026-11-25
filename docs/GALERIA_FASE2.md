@@ -1,6 +1,6 @@
-# Capturas de fase 2
+# Capturas históricas · nueve avances de fase 2
 
-29 capturas de la app real en emulador Pixel 8 Pro Android API 37 sobre Windows. Son estados del producto final; no se cuentan como 29 pantallas distintas. La fase 1 se conserva en `docs/capturas` y aparece cara a cara en el README.
+29 capturas de la app real en emulador Pixel 8 Pro Android API 37 sobre Windows. Son estados del cierre de los nueve primeros avances de fase 2, anterior a la extensión social; no se cuentan como 29 pantallas distintas. La organización posterior se documenta con [19 capturas propias](GALERIA_SOCIAL.md). La fase 1 se conserva en `docs/capturas` y aparece cara a cara en el README.
 
 Los archivos se copiaron de la recaptura final. `21_horizontal`, `29_teclado_editor` y `30_personas` se verificaron de nuevo: detalle cargado, teclado completo y hoja Personas abierta. La antigua `23_texto_completo` se retiró porque el detalle ya muestra el texto completo desde el inicio.
 

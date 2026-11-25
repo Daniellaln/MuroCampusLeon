@@ -16,7 +16,7 @@ Demostrar consultas REST, creación y mejoras de una publicación con MVVM y Rep
 
 ## Operating Context
 
-Kotlin, Jetpack Compose y Material 3. Paquete com.leon.murocampus. Guía GLAB-S09-JLEONS-2026.docx. main conserva fase 1; mejora-ia reúne fase 2. Cada commit tiene una copia completa acumulativa.
+Kotlin, Jetpack Compose y Material 3. Paquete com.leon.murocampus. Guía GLAB-S09-JLEONS-2026.docx. main conserva los doce commits de fase 1; mejora-ia reúne los nueve avances publicados de fase 2 y una extensión de organización social. Cada avance tiene una copia completa acumulativa.
 
 ## Capabilities and Constraints
 
@@ -28,7 +28,7 @@ Nombre MuroCampus. Daniella confirmó fondo blanco fresco, verde suave, rosa lig
 
 ## Evidence on Hand
 
-La fase 1 compiló y aprobó 26 pruebas. Capturas reales en docs/capturas; no son mockups. No hay logo institucional autorizado para este muro ni perfil autenticado.
+La fase 1 y los primeros nueve avances de fase 2 tienen sus capturas y verificaciones históricas en docs. Daniella aportó capturas de X y Threads para orientar la organización del feed, sin solicitar su paleta o identidad. La extensión social tiene 19 capturas propias en docs/capturas_social y una verificación separada de 77 pruebas aprobadas; las evidencias anteriores se conservan como historial. No hay logo institucional autorizado para este muro ni perfil autenticado.
 
 ## Product Principles
 
@@ -40,4 +40,8 @@ Controles mínimos de 48 dp; contraste AA, texto ampliado, teclado y Atrás del 
 
 ## Ajuste confirmado durante la fase 2
 
-Daniella rechazó una primera composición que seguía el patrón de fase 1: banner, buscador, chips y tarjetas de texto. La versión final usa un feed de lectura con autores reales e iniciales, títulos legibles sin portadas repetidas, búsqueda y filtro por persona, Muro y Guardadas. El detalle muestra título y cuerpo completos, con comentarios a demanda. Guardar para leer conserva snapshots locales completos sin red; los borradores se protegen al salir. Reducir texto no permite inventar contenido de la API.
+Daniella rechazó una primera composición que seguía el patrón de fase 1: banner, buscador, chips y tarjetas de texto, y después una cuadrícula de portadas repetidas. Los nueve primeros avances de fase 2 registran el feed abierto que siguió a esas correcciones.
+
+La extensión vigente toma de las capturas de X y Threads la organización de una conversación: avatar en un carril izquierdo, identidad compacta, título y cuerpo originales, y acciones junto a cada publicación. La cabecera es breve y el filtro por persona se abre desde ella; Muro, Buscar, Publicar y Guardadas están en una navegación inferior. Se conservan blanco fresco, verde suave, rosa ligero, Manrope y controles de vidrio inspirado.
+
+El detalle muestra título y cuerpo completos. Comentarios puede abrirse desde la fila o desde el detalle; guardar conserva snapshots completos sin red y compartir abre la hoja de Android. Los borradores se protegen al salir. Las referencias no autorizan inventar fotos, fechas, reacciones, seguidores o contenido que la API no proporciona.

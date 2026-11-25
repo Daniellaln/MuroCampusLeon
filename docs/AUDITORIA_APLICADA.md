@@ -1,4 +1,6 @@
-# Auditoría aplicada · fase 2
+# Auditoría aplicada · avances 1 a 9 de fase 2
+
+Registro histórico de la composición anterior. La organización actual inspirada en Threads y X se revisa en [VEREDICTO_SOCIAL.md](VEREDICTO_SOCIAL.md), con su [galería de 19 estados](GALERIA_SOCIAL.md).
 
 Fecha: 25 de noviembre de 2026. Esta tabla relaciona los hallazgos de [Auditoría de datos y UX](AUDITORIA_DATOS_UX.md) y [Revisión nueva de fase 2](REVISION_NUEVA_FASE2.md) con el código final. Los informes originales se conservan como evidencia del estado previo: su veredicto de reconstrucción y sus cifras históricas no describen automáticamente el cierre actual.
 

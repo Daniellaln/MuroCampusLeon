@@ -1,4 +1,6 @@
-# Verificación de fase 2
+# Verificación histórica · nueve avances de fase 2
+
+Este documento conserva el cierre de los nueve primeros avances, anterior a la extensión social. La verificación posterior tiene su propio [registro](VERIFICACION_SOCIAL.md).
 
 **75 pruebas aprobadas: 47 unitarias y 28 en Android**, sin fallos, errores ni omitidas. Los conteos se comprobaron directamente en los XML de esta ejecución y se copiaron a [pruebas_fase2](pruebas_fase2/). El [resumen JSON](pruebas_fase2/resumen.json) registra los archivos y totales.
 

@@ -33,6 +33,14 @@ import com.leon.murocampus.viewmodel.GuardadosViewModel
     val scrollGuardadas=rememberLazyListState()
     val alcance=rememberCoroutineScope()
     var viendoGuardadas by rememberSaveable { mutableStateOf(false) }
+    var buscando by rememberSaveable { mutableStateOf(false) }
+    var personasAbiertas by rememberSaveable { mutableStateOf(false) }
+    var abrirComentarios by rememberSaveable { mutableStateOf(false) }
+    val gestorFoco=androidx.compose.ui.platform.LocalFocusManager.current
+    val teclado=androidx.compose.ui.platform.LocalSoftwareKeyboardController.current
+    fun cerrarBusqueda() { vm.buscar("");buscando=false;gestorFoco.clearFocus();teclado?.hide() }
+    fun seleccionarTab(guardadas:Boolean) { viendoGuardadas=guardadas;cerrarBusqueda() }
+    BackHandler(buscando) { cerrarBusqueda() }
     val autores by vm.autores.collectAsStateWithLifecycle()
     val guardados=guardadosVm?.guardados?.collectAsStateWithLifecycle()?.value.orEmpty()
     val guardadosCargando=guardadosVm?.cargando?.collectAsStateWithLifecycle()?.value ?: false
@@ -71,16 +79,17 @@ import com.leon.murocampus.viewmodel.GuardadosViewModel
     CompositionLocalProvider(LocalAutores provides autores,LocalGuardados provides guardados,LocalGuardar provides { post -> guardadosVm?.alternar(post) }) {
     Box(Modifier.fillMaxSize().background(c.background)) {
     Scaffold(containerColor=Color.Transparent,contentColor=c.onBackground,modifier=Modifier.semantics { testTagsAsResourceId=true },topBar={
-        TopAppBar(title={
-            if(ruta=="muro")Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(10.dp)) {
-                Image(painterResource(R.drawable.ic_muro),null,Modifier.size(34.dp))
-                Text("MuroCampus",style=MaterialTheme.typography.titleLarge,fontWeight=FontWeight.ExtraBold)
+        TopAppBar(expandedHeight=56.dp,title={
+            if(ruta=="muro")Row(verticalAlignment=Alignment.CenterVertically,horizontalArrangement=Arrangement.spacedBy(8.dp)) {
+                Image(painterResource(R.drawable.ic_muro),null,Modifier.size(24.dp))
+                Text("MuroCampus",style=MaterialTheme.typography.titleMedium,fontWeight=FontWeight.Bold,maxLines=1)
             } else Text(when(ruta) { "crear"->"Crear publicación";"editar"->"Editar publicación";else->"Publicación" },style=MaterialTheme.typography.titleMedium)
-        },navigationIcon={ if(ruta!="muro")Box(Modifier.padding(start=12.dp,end=8.dp)) { GlassIconButton(R.drawable.ic_volver,"Volver",::volver) } },
+        },navigationIcon={ if(ruta=="muro")IconButton(onClick={ personasAbiertas=true },enabled=!viendoGuardadas) {
+            Icon(painterResource(R.drawable.ic_filtro),"Filtrar por usuario",Modifier.size(22.dp))
+        } else Box(Modifier.padding(start=12.dp,end=8.dp)) { GlassIconButton(R.drawable.ic_volver,"Volver",::volver) } },
         actions={
             if(ruta=="muro") {
-                GlassIconButton(R.drawable.ic_recargar,"Actualizar muro",vm::cargar)
-                Spacer(Modifier.width(8.dp))
+                IconButton(onClick=vm::cargar) { Icon(painterResource(R.drawable.ic_recargar),"Actualizar muro",Modifier.size(22.dp)) }
                 IconButton(onClick={ info=true }) { Icon(painterResource(R.drawable.ic_info),"Sobre los datos",Modifier.size(22.dp)) }
             } else if(ruta=="detalle")Box(Modifier.padding(end=16.dp)) {
                 GlassIconButton(R.drawable.ic_mas,"Opciones de publicación",{ menu=true },enabled=detalle is UiState.Exito && eliminacion!=UiState.Cargando)
@@ -90,7 +99,13 @@ import com.leon.murocampus.viewmodel.GuardadosViewModel
                 }
             }
         },colors=TopAppBarDefaults.topAppBarColors(containerColor=c.background,titleContentColor=c.onBackground))
-    },floatingActionButton={ if(ruta=="muro" && !tecladoVisible)GlassButton("Publicar",{ vm.prepararCreacion();ruta="crear" },icon=R.drawable.ic_agregar,primary=true) }) { margen ->
+    },bottomBar={ if(ruta=="muro" && !tecladoVisible)Box(Modifier.fillMaxWidth(),contentAlignment=Alignment.Center) {
+        Box(Modifier.widthIn(max=760.dp)) { NavegacionSocial(if(buscando)1 else if(viendoGuardadas)3 else 0,
+            onMuro={ seleccionarTab(false) },
+            onBuscar={ buscando=true },
+            onPublicar={ vm.prepararCreacion();ruta="crear" },
+            onGuardadas={ seleccionarTab(true) }) }
+    } }) { margen ->
         Box(Modifier.fillMaxSize().padding(margen).imePadding(),contentAlignment=Alignment.TopCenter) {
             val motion=LocalMotionEnabled.current
             AnimatedContent(targetState=ruta,modifier=Modifier.widthIn(max=760.dp).fillMaxSize(),label="navegación del muro",transitionSpec={
@@ -100,8 +115,17 @@ import com.leon.murocampus.viewmodel.GuardadosViewModel
                 when(pantalla) {
                     "crear" -> PantallaCrear(vm,::volverAlMuro) { borradorModificado=it }
                     "editar" -> { val post=(detalle as? UiState.Exito)?.datos?.post;if(post!=null)PantallaEditar(vm,post,::volverAlMuro) { borradorModificado=it } else Cargando("Cargando publicación…") }
-                    "detalle" -> PantallaDetalle(vm,idSeleccionado ?: 1,::volverAlMuro)
-                    else -> PantallaLista(vm,if(viendoGuardadas)scrollGuardadas else scrollMuro,viendoGuardadas,{ viendoGuardadas=it;vm.buscar("");alcance.launch { (if(it)scrollGuardadas else scrollMuro).scrollToItem(0) } }) { id -> if(viendoGuardadas)vm.abrirGuardado(guardados.first { it.id==id });idSeleccionado=id;ruta="detalle" }
+                    "detalle" -> PantallaDetalle(vm,idSeleccionado ?: 1,::volverAlMuro,mostrarComentarios=abrirComentarios)
+                    else -> PantallaLista(vm,if(viendoGuardadas)scrollGuardadas else scrollMuro,viendoGuardadas,::seleccionarTab,
+                        busquedaAbierta=buscando,onCerrarBusqueda=::cerrarBusqueda,
+                        personasAbiertas=personasAbiertas,onCerrarPersonas={ personasAbiertas=false },
+                        onAbrirComentarios={ id ->
+                            if(viendoGuardadas)guardados.firstOrNull { it.id==id }?.let(vm::abrirGuardado)
+                            abrirComentarios=true;idSeleccionado=id;ruta="detalle"
+                        }) { id ->
+                            if(viendoGuardadas)guardados.firstOrNull { it.id==id }?.let(vm::abrirGuardado)
+                            abrirComentarios=false;idSeleccionado=id;ruta="detalle"
+                        }
                 }
             }
         }

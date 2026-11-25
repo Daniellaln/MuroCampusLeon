@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.leon.murocampus.FaseDosViewModelTest" tests="8" skipped="0" failures="0" errors="0" timestamp="2026-11-25T18:03:56.238Z" hostname="WILLIAM" time="0.04">
+  <properties/>
+  <testcase name="busquedaNoSolicitaRedYRespetaElFiltro" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.012"/>
+  <testcase name="reconstruirConEstadoGuardadoRestauraFiltroYBusquedaDesdeLaPrimeraPagina" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.006"/>
+  <testcase name="editarValidaEspaciosYExponeLaRespuesta" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.003"/>
+  <testcase name="cambiarUsuarioCancelaLaPaginaAnteriorYReiniciaOffset" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.006"/>
+  <testcase name="eliminarExponeCodigoYSeLimpiaAlCerrarDetalle" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.003"/>
+  <testcase name="finalizarUnaPaginaCanceladaNoApagaLaCargaDeLaNuevaLista" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.004"/>
+  <testcase name="reintentoDePaginaConservaLoAnteriorYRepiteElMismoInicio" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.003"/>
+  <testcase name="paginaDeVeinteFinYNoDuplicados" classname="com.leon.murocampus.FaseDosViewModelTest" time="0.003"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

@@ -5,8 +5,8 @@
     "tool": "image_gen",
     "role": "ambientación universitaria de cabecera",
     "initialIntent": "ambientación",
-    "currentUse": "Activo: cabecera de campus en PantallaLista.CabeceraComunidad; no representa una ubicación verificada.",
-    "status": "active",
+    "currentUse": "Sin llamada activa en el muro vigente: recurso de ambientación conservado del cierre histórico de los nueve primeros avances de fase 2. No representa una ubicación verificada.",
+    "status": "retained-unused",
     "apiData": false
   },
   {
