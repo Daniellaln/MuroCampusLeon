@@ -100,3 +100,19 @@ Compórtate como un experto en paginación REST con Kotlin. Ayúdame a cargar ve
 
 **Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
 
+## 7. Recursos visuales
+
+```text
+Compórtate como un experto en recursos de Android. Ayúdame a integrar los recursos versionados de MuroCampus: campus_atrio.png y conversaciones_vacio.png en app/src/main/res/drawable-nodpi; Manrope local en res/font; SVG editables en diseno/iconos y sus VectorDrawable en drawable. Consulta diseno/RECURSOS.md para nombres, procedencia y prompts de imágenes. No sustituyas la foto por un gradiente ni uses emojis para iconos. La ilustración transparente corresponde a vacíos/errores; la foto es ambientación del campus, no la imagen de una publicación de la API. Conserva las licencias de la fuente.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 7 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Creé las imágenes del campus y del estado vacío, los iconos SVG y la tipografía local del rediseño.
+
+**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+
+**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+

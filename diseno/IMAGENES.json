@@ -1,0 +1,14 @@
+[
+  {
+    "name": "campus_atrio.png",
+    "prompt": "Use case: photorealistic-natural. Asset type: a real in-app header photograph for MuroCampus, a modern student community Android app, not a mockup. Wide landscape composition about 3:2. A beautiful contemporary university study atrium in soft daylight, white architectural walls, pale sage green furnishings, large clean windows overlooking lush green campus trees. At the right foreground, a thoughtfully arranged white study table with a closed pale blush notebook, a slim laptop and a tiny glass vase with a few delicate white blossoms, all integrated naturally into the photographed scene. The main focus is the inviting university space and greenery, not the props. Clear luminous whites, very subtle pink accent and fresh sage green, crisp realistic details, gentle natural depth of field, current premium editorial photography. The left third is calmer and lighter to support a small real text overlay by code. No people, no text, no logos, no watermark, no UI, no beige paper, no heavy pink color cast, no floating objects. Image must be suitable to crop as a horizontal 2.2:1 header.",
+    "tool": "image_gen",
+    "role": "ambientación"
+  },
+  {
+    "name": "conversaciones_vacio.png",
+    "prompt": "Use case: product-mockup. Asset type: a small premium 3D illustration for empty search and offline states in MuroCampus Android student community app. Isolated icon-like sculptural object on a genuinely transparent background: a softly rounded clear glass speech bubble resting against a pale sage green speech bubble with three small inset dots, one tiny pale blush pink glass sphere nearby. Polished optically clear glass edges with narrow white specular highlights and realistic translucent depth, minimal contemporary product rendering. Carefully authored, feminine subtle refinement, not toys or glossy plastic, no heavy texture, no vivid saturated pink. Three-quarter view, compact centered composition with generous transparent margins and a subtle contact shadow under objects only. No text, no letters, no UI, no border or framing, no full background, no flowers or people.",
+    "tool": "image_gen",
+    "role": "vacío y error"
+  }
+]
