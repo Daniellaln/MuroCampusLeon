@@ -60,6 +60,21 @@ class PostsViewModel(private val repo:PostRepository):ViewModel() {
     }
     fun cerrarDetalle() { cargaDetalle?.cancel() }
 
+    private val _edicion=MutableStateFlow<UiState<Post>?>(null)
+    val edicion=_edicion.asStateFlow()
+    private var guardado:Job?=null
+    fun prepararEdicion() { guardado?.cancel();_edicion.value=null }
+    fun cerrarEdicion() { guardado?.cancel();_edicion.value=null }
+    fun editar(id:Int,titulo:String,texto:String) {
+        if(titulo.isBlank() || texto.isBlank() || _edicion.value==UiState.Cargando)return
+        _edicion.value=UiState.Cargando
+        guardado=viewModelScope.launch {
+            val resultado=repo.editar(id,EditarPost(titulo.trim(),texto.trim()))
+            ensureActive()
+            resultado.onSuccess { _edicion.value=UiState.Exito(it) }
+                .onFailure { _edicion.value=UiState.Error(mensajeDe(it)) }
+        }
+    }
     private val _creacion=MutableStateFlow<UiState<Post>?>(null)
     val creacion=_creacion.asStateFlow()
     private var envio:Job?=null

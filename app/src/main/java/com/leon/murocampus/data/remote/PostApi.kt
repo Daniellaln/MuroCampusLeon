@@ -6,5 +6,6 @@ interface PostApi {
     @GET("posts/{id}") suspend fun detalle(@Path("id") id:Int):Post
     @GET("posts/{id}/comments") suspend fun comentarios(@Path("id") id:Int):List<Comentario>
     @GET("posts") suspend fun porUsuario(@Query("userId") userId:Int):List<Post>
+    @PATCH("posts/{id}") suspend fun editar(@Path("id") id:Int,@Body cambios:EditarPost):Post
     @POST("posts") suspend fun crear(@Body nuevo:NuevoPost):Post
 }

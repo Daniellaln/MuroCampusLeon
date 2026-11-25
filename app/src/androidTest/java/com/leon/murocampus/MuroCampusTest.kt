@@ -22,6 +22,7 @@ class MuroCampusTest {
         override suspend fun detalle(id:Int):Result<Post> { delay(40);return if(fallo)Result.failure(IOException()) else Result.success(posts.first { it.id==id }) }
         override suspend fun comentarios(id:Int):Result<List<Comentario>> { delay(40);return Result.success((1..5).map { Comentario(id,it,"Respuesta","correo$it@campus.test","Comentario $it") }) }
         override suspend fun porUsuario(userId:Int):Result<List<Post>> { filtro=userId;delay(40);return Result.success(posts.filter { it.userId==userId }) }
+        override suspend fun editar(id:Int,cambios:EditarPost)=Result.success(Post(1,id,cambios.title,cambios.body))
         override suspend fun crear(nuevo:NuevoPost):Result<Post> { enviados++;delay(40);return if(fallo)Result.failure(IOException()) else Result.success(Post(nuevo.userId,101,nuevo.title,nuevo.body)) }
     }
     private fun mostrar(repo:Repo=Repo()):Pair<Repo,PostsViewModel> {

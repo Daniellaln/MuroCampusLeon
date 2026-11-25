@@ -36,3 +36,19 @@ Compórtate como un experto en MVVM y StateFlow. Ayúdame a buscar por título e
 
 **Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
 
+## 3. Editar
+
+```text
+Compórtate como un experto en REST y Jetpack Compose. Necesito editar título y contenido de una publicación existente mediante PATCH posts/{id}. Añade EditarPost serializable, PostApi.editar, PostRepository.editar y el estado de edición en PostsViewModel. La pantalla reutiliza los campos etiquetados, carga el texto actual, deshabilita blancos/doble envío, conserva el borrador ante error y muestra la respuesta real al guardar. No finjas que JSONPlaceholder guarda cambios: informa que es una simulación y al recargar reaparece el original. Retrofit y HttpException solo en data.
+```
+
+| Prompt | Respuesta de Gemini | Qué cambié o descarté | Por qué |
+|---|---|---|---|
+| Bloque 3 | Pendiente de ejecutar por la estudiante | Se implementó y comprobó con Codex; consulta el commit de este avance | Mantener un registro honesto, sin atribuir respuestas inexistentes a Gemini |
+
+**Diferencia frente a la base:** Añadí la edición del título y contenido con PATCH, validación y respuesta visible del servidor.
+
+**Reflexión:** La mejora conserva la separación entre vista, ViewModel y Repository.
+
+**Qué comprobar:** ejecuta el criterio del bloque y compila antes del siguiente.
+

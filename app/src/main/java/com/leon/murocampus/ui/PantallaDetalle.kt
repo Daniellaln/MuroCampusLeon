@@ -13,7 +13,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.leon.murocampus.model.*
 import com.leon.murocampus.viewmodel.PostsViewModel
-@Composable fun PantallaDetalle(vm:PostsViewModel,id:Int) {
+@Composable fun PantallaDetalle(vm:PostsViewModel,id:Int,onEditar:(Post)->Unit={}) {
     val estado by vm.detalle.collectAsStateWithLifecycle()
         val contexto=LocalContext.current
         var errorCompartir by remember { mutableStateOf(false) }
@@ -24,6 +24,7 @@ import com.leon.murocampus.viewmodel.PostsViewModel
             item {
                 Column(Modifier.fillMaxWidth().padding(vertical=8.dp),verticalArrangement=Arrangement.spacedBy(12.dp)) {
                     Text(actual.datos.post.title,style=MaterialTheme.typography.titleLarge,fontWeight=FontWeight.Bold)
+                    OutlinedButton(onClick={ onEditar(actual.datos.post) }) { Text("Editar publicación") }
                     Text(actual.datos.post.body,style=MaterialTheme.typography.bodyLarge)
                         OutlinedButton(onClick={
                             try { compartirPublicacion(contexto,actual.datos.post);errorCompartir=false }
